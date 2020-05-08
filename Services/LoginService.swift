@@ -11,7 +11,7 @@ import Foundation
 class LoginService {
     
     func login(user: User, completion: @escaping (Bool) -> Void) -> Void {
-           guard let scooterURL = URL(string: "https://wolcare.herokuapp.com/api//auth/login") else {
+           guard let scooterURL = URL(string: "https://wolcare.herokuapp.com/api/auth/login") else {
                return
            }
            var request = URLRequest(url: scooterURL)
@@ -20,13 +20,22 @@ class LoginService {
            request.setValue("application/json", forHTTPHeaderField: "content-type")
            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, res, err) in
                if let httpRes = res as? HTTPURLResponse {
-                   completion(httpRes.statusCode == 201)
-                print(res.debugDescription)
-                   return
+                
+                completion(httpRes.statusCode == 200)
                }
-               completion(false)
+            
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                       print("data: \(dataString)")
+                    completion(true)
+            } else {
+
+                completion(false)
+            }
+            
            })
+        
            task.resume()
        }
 
 }
+ 

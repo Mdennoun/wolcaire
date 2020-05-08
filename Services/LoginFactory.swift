@@ -24,7 +24,7 @@ class LoginFactory: CustomStringConvertible {
     }
     
     
-    static func scooterFrom(dictionary: [String: Any]) -> User? {
+    static func userFrom(dictionary: [String: Any]) -> User? {
            guard let email = dictionary["email"] as? String,
                  let password = dictionary["password"] as? String else {
                    return nil
@@ -35,8 +35,11 @@ class LoginFactory: CustomStringConvertible {
        
        static func dictionaryFrom(user: User) -> [String: Any] {
            return [
-               "email": user.email,
-               "password": user.password,
+               "type": "IOS",
+               //"email": user.email,
+               //"password": user.password,
+               "password": "test1",
+               "email":"test1@test.fr"
            ]
        }
     

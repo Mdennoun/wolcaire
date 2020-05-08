@@ -26,27 +26,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
-            } else {
-                // Not found, so remove keyboard.
-                textField.resignFirstResponder()
-            }
-            
-            
-            return false
+         switch textField {
+           case mail:
+               password.becomeFirstResponder()
+           case password:
+                self.view.endEditing(true)
+           default:
+               textField.resignFirstResponder()
+           }
+           return false
     }
     
     @IBAction func login(_ sender: Any) {
         
-        print("mail: \(mail.text), password: \(password.text)")
+        print("mail: \(String(describing: mail.text)), password: \(String(describing: password.text))")
         
         let user = User(email: mail.text ?? "test1@test.fr", password: password.text ?? "test2")
         self.loginService.login(user: user) { (success) in
-            //print("\(success)")
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+            
+            print("\(success)")
         }
+        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        
     }
     
    
