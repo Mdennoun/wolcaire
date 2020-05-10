@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 
 
-        let user = User(_id: nil, email: mail.text ?? "test1@test.fr", password: password.text ?? "test2", type: "0", pseudo: "String", firstname: "String", lastname: "String", birthdate: date , sex: true, photo: "String", requestIssued: 0, requestFulfilled: 0 )
+        let user = User(_id: nil, email: mail.text ?? "test1@test.fr", password: password.text ?? "test2", type: "0", pseudo: "String", firstname: "String", lastname: "String", birthdate: date.debugDescription , sex: true, photo: "String", requestIssued: 0, requestFulfilled: 0 )
         
         self.loginService.login(user: user) { (success) in
             

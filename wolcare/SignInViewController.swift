@@ -35,37 +35,64 @@ class SignInViewController: UIViewController {
     @IBOutlet var firstnameEdt: UITextField!
     @IBOutlet var nameEdt: UITextField!
     @IBOutlet var emailEdt: UITextField!
+    @IBOutlet var birthdateEdt: UITextField!
     
     
-   /* @IBOutlet var genderPicker: UIPickerView!
-    @IBAction func birthdatePicker(_ sender: Any) {
-    }*/
+    @IBOutlet var genderSwitch: UISegmentedControl!
+    
+    
+    private var datePicker: UIDatePicker?
   
     let userWebService: UserWebService = UserWebService()
+    
+  
     
    // var genderData: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(confirm))
         
-        navigationController?.title = "Inscription"
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action:
+            #selector(SignInViewController.dateChanged(datePicker:)), for: .valueChanged)
         
+        birthdateEdt.inputView = datePicker
+        
+        navigationController?.navigationItem.title = "Inscription"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
         //self.genderPicker.delegate = self
         //self.genderPicker.dataSource = self
         //genderData = ["un Homme", "une Femme"]
         
+ 
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         
+        birthdateEdt.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
     }
     
     @objc func confirm() {
-        let date = Date()
+        let date = Date().debugDescription
+        print(date)
         
         guard let email = self.emailEdt.text,
               let password = self.passwordEdt.text,
               let pseudo = self.pseudoEdt.text,
               let firstname = self.firstnameEdt.text,
-              let lastname = self.nameEdt.text
-              //let birthdate = date?,
+              let lastname = self.nameEdt.text,
+        let birthdate = self.birthdateEdt.text
               //let photo = "La Pic du siecle !"
               //let sex = true,
               else {
@@ -73,7 +100,7 @@ class SignInViewController: UIViewController {
         }
         
         let user = User(_id: nil,email: email, password: password, type: "type IOS", pseudo: pseudo, firstname: firstname, lastname: lastname,
-        birthdate: nil, sex: true, photo: "photo", requestIssued: 0, requestFulfilled: 0)
+        birthdate: birthdate, sex: true, photo: "photo", requestIssued: 0, requestFulfilled: 0)
         
         self.userWebService.newUser(user: user) { (success) in
             print("\(success)")
@@ -82,14 +109,5 @@ class SignInViewController: UIViewController {
         }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

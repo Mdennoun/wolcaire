@@ -40,7 +40,7 @@ class UserWebService {
         task.resume()
         
         let date = Date()
-        let arr = [User(_id: "_id", email: "email", password: "password", type:"type", pseudo : "pseudo", firstname: "firstname", lastname: "lastname", birthdate: date, sex: true, photo: "photo", requestIssued: 1, requestFulfilled: 1 )]
+        let arr = [User(_id: "_id", email: "email", password: "password", type:"type", pseudo : "pseudo", firstname: "firstname", lastname: "lastname", birthdate: date.debugDescription, sex: true, photo: "photo", requestIssued: 1, requestFulfilled: 1 )]
         completion(arr)
     }
     

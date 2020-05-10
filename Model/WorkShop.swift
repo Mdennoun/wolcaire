@@ -1,14 +1,14 @@
 //
-//  Login.swift
+//  WorkShop.swift
 //  wolcare
 //
-//  Created by Mohamed dennoun on 07/05/2020.
+//  Created by Arnaud Salomon on 10/05/2020.
 //  Copyright © 2020 Mohamed dennoun. All rights reserved.
 //
 
 import Foundation
 
-class User: CustomStringConvertible {
+class WorkShop: CustomStringConvertible {
  
     
     var email: String?
@@ -17,24 +17,15 @@ class User: CustomStringConvertible {
     var pseudo: String?
     var firstname: String?
     var lastname: String?
-    var birthdate: String?
+    var birthdate: Date?
     var sex: Bool?
     var photo: String?
     var requestIssued: Int?
     var requestFulfilled: Int?
     var _id: String?
     
-    
-    
-    
-    init(email: String?, password: String?) {
-        self.email = email
-        self.password = password
-    }
-    
-    convenience init (_id: String?,email: String?, password: String?, type: String?, pseudo: String?, firstname: String?, lastname: String?,
-    birthdate: String?, sex: Bool?, photo: String?, requestIssued: Int?, requestFulfilled: Int? ) {
-        self.init(email: email, password: password)
+    init(_id: String?,email: String?, password: String?, type: String?, pseudo: String?, firstname: String?, lastname: String?,
+        birthdate: Date?, sex: Bool?, photo: String?, requestIssued: Int?, requestFulfilled: Int? ) {
         self._id = _id
         self.email = email
         self.password = password

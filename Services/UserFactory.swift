@@ -17,13 +17,13 @@ class UserFactory: CustomStringConvertible {
     var type: String
     var firstname: String
     var lastname: String
-    var birthdate: Date
+    var birthdate: String
     var sex: Bool
     var photo: String
     var requestIssued: Int
     var requestFulfilled: Int
     
-    init(email: String, password: String, type: String, pseudo: String, firstname: String, lastname: String, birthdate: Date, sex: Bool, photo: String, requestIssued: Int, requestFulfilled: Int) {
+    init(email: String, password: String, type: String, pseudo: String, firstname: String, lastname: String, birthdate: String, sex: Bool, photo: String, requestIssued: Int, requestFulfilled: Int) {
         
         self.email = email
         self.password = password
@@ -51,7 +51,7 @@ class UserFactory: CustomStringConvertible {
                  let type = user["type"] as? String,
                  let firstname = user["firstname"] as? String,
                  let lastname = user["lastname"] as? String,
-                 let birthdate = user["birthdate"] as? Date,
+                 let birthdate = user["birthdate"] as? String,
                  let sex = user["sex"] as? Bool,
                  let photo = user["photo"] as? String,
                  let requestIssued = user["requestIssued"] as? Int,
@@ -60,7 +60,7 @@ class UserFactory: CustomStringConvertible {
                    return nil
            }
         let user = User(_id: id,email: email, password: password, type: type, pseudo: pseudo, firstname: firstname, lastname:lastname,
-               birthdate: birthdate, sex: sex, photo: photo, requestIssued: requestIssued, requestFulfilled: requestFulfilled)
+                        birthdate: birthdate.debugDescription, sex: sex, photo: photo, requestIssued: requestIssued, requestFulfilled: requestFulfilled)
            return user
        }
     

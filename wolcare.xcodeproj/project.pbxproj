@@ -23,6 +23,7 @@
 		952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952EC0EC2466F3FB00F83396 /* SignInViewController.xib */; };
 		952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0EF2467FE8200F83396 /* UserFactory.swift */; };
 		952EC0F22468023800F83396 /* UserWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0F12468023800F83396 /* UserWebService.swift */; };
+		952EC0F42468288800F83396 /* WorkShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0F32468288800F83396 /* WorkShop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		952EC0EC2466F3FB00F83396 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		952EC0EF2467FE8200F83396 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		952EC0F12468023800F83396 /* UserWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWebService.swift; sourceTree = "<group>"; };
+		952EC0F32468288800F83396 /* WorkShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0C7C45792464802800A9CA3F /* User.swift */,
+				952EC0F32468288800F83396 /* WorkShop.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				0C7C457624647F0D00A9CA3F /* HomeViewController.swift in Sources */,
 				0C7C4572246477AA00A9CA3F /* LoginViewController.swift in Sources */,
+				952EC0F42468288800F83396 /* WorkShop.swift in Sources */,
 				0C7C45612464779200A9CA3F /* ViewController.swift in Sources */,
 				952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */,
 				0C7C457A2464802800A9CA3F /* User.swift in Sources */,

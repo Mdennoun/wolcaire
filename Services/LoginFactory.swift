@@ -26,21 +26,11 @@ class LoginFactory: CustomStringConvertible {
     
     static func userFrom(dictionary: [String: Any]) -> User? {
            guard let email = dictionary["email"] as? String,
-                 let password = dictionary["password"] as? String,
-                 let pseudo = dictionary["pseudo"] as? String,
-                 let type = dictionary["type"] as? String,
-                 let firstname = dictionary["firstname"] as? String,
-                 let lastname = dictionary["lastname"] as? String,
-                 let birthdate = dictionary["birthdate"] as? Date,
-                 let sex = dictionary["sex"] as? Bool,
-                 let photo = dictionary["photo"] as? String,
-                 let requestIssued = dictionary["requestIssued"] as? Int,
-                 let requestFulfilled = dictionary["requestFulfilled"] as? Int
-           else {
+                 let password = dictionary["password"] as? String
+        else {
                    return nil
            }
-        let user = User(_id: nil, email: email, password: password, type: type, pseudo: pseudo, firstname: firstname, lastname:lastname,
-               birthdate: birthdate, sex: sex, photo: photo, requestIssued: requestIssued, requestFulfilled: requestFulfilled)
+        let user = User(email: email, password: password)
            return user
        }
        
