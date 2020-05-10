@@ -19,6 +19,10 @@
 		0C7C457A2464802800A9CA3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C45792464802800A9CA3F /* User.swift */; };
 		0C7C457D2464811600A9CA3F /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C457C2464811600A9CA3F /* LoginService.swift */; };
 		0C7C457F2464815A00A9CA3F /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C457E2464815A00A9CA3F /* LoginFactory.swift */; };
+		952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0EB2466F3FB00F83396 /* SignInViewController.swift */; };
+		952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952EC0EC2466F3FB00F83396 /* SignInViewController.xib */; };
+		952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0EF2467FE8200F83396 /* UserFactory.swift */; };
+		952EC0F22468023800F83396 /* UserWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0F12468023800F83396 /* UserWebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		0C7C45792464802800A9CA3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0C7C457C2464811600A9CA3F /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0C7C457E2464815A00A9CA3F /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		952EC0EB2466F3FB00F83396 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		952EC0EC2466F3FB00F83396 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		952EC0EF2467FE8200F83396 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		952EC0F12468023800F83396 /* UserWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,8 @@
 				0C7C4571246477AA00A9CA3F /* LoginViewController.xib */,
 				0C7C457424647F0D00A9CA3F /* HomeViewController.swift */,
 				0C7C457524647F0D00A9CA3F /* HomeViewController.xib */,
+				952EC0EB2466F3FB00F83396 /* SignInViewController.swift */,
+				952EC0EC2466F3FB00F83396 /* SignInViewController.xib */,
 			);
 			path = wolcare;
 			sourceTree = "<group>";
@@ -97,6 +107,8 @@
 			children = (
 				0C7C457C2464811600A9CA3F /* LoginService.swift */,
 				0C7C457E2464815A00A9CA3F /* LoginFactory.swift */,
+				952EC0EF2467FE8200F83396 /* UserFactory.swift */,
+				952EC0F12468023800F83396 /* UserWebService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -159,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */,
 				0C7C4573246477AA00A9CA3F /* LoginViewController.xib in Resources */,
 				0C7C45692464779600A9CA3F /* LaunchScreen.storyboard in Resources */,
 				0C7C45662464779600A9CA3F /* Assets.xcassets in Resources */,
@@ -176,10 +189,13 @@
 				0C7C457624647F0D00A9CA3F /* HomeViewController.swift in Sources */,
 				0C7C4572246477AA00A9CA3F /* LoginViewController.swift in Sources */,
 				0C7C45612464779200A9CA3F /* ViewController.swift in Sources */,
+				952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */,
 				0C7C457A2464802800A9CA3F /* User.swift in Sources */,
 				0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */,
+				952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */,
 				0C7C455F2464779200A9CA3F /* SceneDelegate.swift in Sources */,
 				0C7C457F2464815A00A9CA3F /* LoginFactory.swift in Sources */,
+				952EC0F22468023800F83396 /* UserWebService.swift in Sources */,
 				0C7C457D2464811600A9CA3F /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

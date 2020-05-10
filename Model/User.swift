@@ -11,15 +11,36 @@ import Foundation
 class User: CustomStringConvertible {
  
     
-    var email: String
-    var password: String
+    var email: String?
+    var password: String?
+    var type: String?
+    var pseudo: String?
+    var firstname: String?
+    var lastname: String?
+    var birthdate: Date?
+    var sex: Bool?
+    var photo: String?
+    var requestIssued: Int?
+    var requestFulfilled: Int?
+    var _id: String?
     
-    init(email: String, password: String) {
+    init(_id: String?,email: String?, password: String?, type: String?, pseudo: String?, firstname: String?, lastname: String?,
+        birthdate: Date?, sex: Bool?, photo: String?, requestIssued: Int?, requestFulfilled: Int? ) {
+        self._id = _id
         self.email = email
         self.password = password
+        self.type = type
+        self.pseudo = pseudo
+        self.firstname = firstname
+        self.lastname = lastname
+        self.birthdate = birthdate
+        self.sex = sex
+        self.photo = photo
+        self.requestIssued = requestIssued
+        self.requestFulfilled = requestFulfilled
     }
     
     var description: String {
-        return "{ Mail: \(self.email ), Password: \(self.password) }"
+        return "{ Mail: \(self.email ), Password: \(self.password), type: \(self.type), pseudo: \(self.pseudo), firstname: \(self.firstname), sex: \(self.sex), photo: \(self.photo), requestIssued: \(self.requestIssued), requestfulfilled: \(self.requestFulfilled), id: \(_id) }"
     }
 }
