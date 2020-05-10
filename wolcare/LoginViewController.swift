@@ -40,16 +40,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func login(_ sender: Any) {
         
         print("mail: \(String(describing: mail.text)), password: \(String(describing: password.text))")
+        let date = Date()
+
+
+
+        let user = User(_id: nil, email: mail.text ?? "test1@test.fr", password: password.text ?? "test2", type: "0", pseudo: "String", firstname: "String", lastname: "String", birthdate: date.debugDescription , sex: true, photo: "String", requestIssued: 0, requestFulfilled: 0 )
         
-        let user = User(email: mail.text ?? "test1@test.fr", password: password.text ?? "test2")
         self.loginService.login(user: user) { (success) in
             
             print("\(success)")
         }
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+
+        self.navigationController?.pushViewController(SignInViewController(), animated: true)
         
     }
-    
    
 
 }

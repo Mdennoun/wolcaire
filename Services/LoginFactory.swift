@@ -26,7 +26,8 @@ class LoginFactory: CustomStringConvertible {
     
     static func userFrom(dictionary: [String: Any]) -> User? {
            guard let email = dictionary["email"] as? String,
-                 let password = dictionary["password"] as? String else {
+                 let password = dictionary["password"] as? String
+        else {
                    return nil
            }
         let user = User(email: email, password: password)
