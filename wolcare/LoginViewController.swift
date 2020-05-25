@@ -51,7 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("\(success)")
         }
 
-        self.navigationController?.pushViewController(SignInViewController(), animated: true)
+        self.navigationController?.pushViewController(createWorkShopViewController(), animated: true)
         
     }
    

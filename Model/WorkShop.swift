@@ -11,36 +11,52 @@ import Foundation
 class WorkShop: CustomStringConvertible {
  
     
-    var email: String?
-    var password: String?
-    var type: String?
-    var pseudo: String?
-    var firstname: String?
-    var lastname: String?
-    var birthdate: Date?
-    var sex: Bool?
-    var photo: String?
-    var requestIssued: Int?
-    var requestFulfilled: Int?
+    var idCreator: String?
+    var idIntervenant: String?
+    var title: String?
+    var workShopDescription: String?
+    var dateAvailable: String?
+    var datEnd: String?
+    var category: String?
     var _id: String?
+    var status: Int?
+    var createAt: Date?
+
     
-    init(_id: String?,email: String?, password: String?, type: String?, pseudo: String?, firstname: String?, lastname: String?,
-        birthdate: Date?, sex: Bool?, photo: String?, requestIssued: Int?, requestFulfilled: Int? ) {
-        self._id = _id
-        self.email = email
-        self.password = password
-        self.type = type
-        self.pseudo = pseudo
-        self.firstname = firstname
-        self.lastname = lastname
-        self.birthdate = birthdate
-        self.sex = sex
-        self.photo = photo
-        self.requestIssued = requestIssued
-        self.requestFulfilled = requestFulfilled
-    }
+    init(idCreator: String?, idIntervenant: String?, title: String?, workShopDescription: String?, dateAvailable: String?, datEnd: String?, category: String?, status: Int?, createAt: Date?) {
+        
+        
+        self.idCreator = idCreator
+        self.idIntervenant = idIntervenant
+        self.title = title
+        self.workShopDescription = workShopDescription
+        self.dateAvailable = dateAvailable
+        self.datEnd = datEnd
+        self.category = category
+        self.status = status
+        
+        
+   
+    } 
+    
+    
+    convenience init(_id: String?,idCreator: String?, idIntervenant: String?, title: String?, workShopDescription: String?, dateAvailable: String?, datEnd: String?, category: String?, status: Int?, createAt: Date?) {
+        self.init(idCreator: idCreator, idIntervenant: idIntervenant, title: title, workShopDescription: workShopDescription, dateAvailable: dateAvailable, datEnd: datEnd, category: category, status: status, createAt: createAt)
+         self._id = _id
+         self.idCreator = idCreator
+         self.idIntervenant = idIntervenant
+         self.title = title
+         self.workShopDescription = workShopDescription
+         self.dateAvailable = dateAvailable
+         self.datEnd = datEnd
+         self.category = category
+         self.status = status
+         self.createAt = createAt
+         
+    
+     }
     
     var description: String {
-        return "{ Mail: \(self.email ), Password: \(self.password), type: \(self.type), pseudo: \(self.pseudo), firstname: \(self.firstname), sex: \(self.sex), photo: \(self.photo), requestIssued: \(self.requestIssued), requestfulfilled: \(self.requestFulfilled), id: \(_id) }"
+    return "{ idCreator: \(self.idCreator ), idIntervenant: \(self.idIntervenant), title: \(self.title), description: \(self.workShopDescription), dateAvailable: \(self.dateAvailable), datEnd: \(self.datEnd), category: \(self.category), id: \(_id), createAt: \(self.createAt), status: \(self.status) }"
     }
 }
