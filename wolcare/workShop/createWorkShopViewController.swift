@@ -8,8 +8,9 @@
 
 import UIKit
 
-class createWorkShopViewController: UIViewController {
+class createWorkShopViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+
     @IBOutlet var workShopImg: UIImageView!
     @IBOutlet var titleTxt: UILabel!
     @IBOutlet var titleEdt: UITextField!
@@ -21,19 +22,32 @@ class createWorkShopViewController: UIViewController {
     @IBOutlet var hourEndEdt: UITextField!
     @IBOutlet var descriptionTxt: UILabel!
     @IBOutlet var descriptionEdt: UITextField!
+    @IBOutlet var categoryPicker: UIPickerView!
+    
     
     private var dateBeginPicker: UIDatePicker?
     private var hourBeginPicker: UIDatePicker?
     private var hourEndPicker: UIDatePicker?
+    
+    
+    
+    
+    var categoryData: [String] = [String]()
     
 let workShopService: WorkShopService = WorkShopService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image: UIImage = UIImage(named: "workshop")!
-        workShopImg = UIImageView(image: image)
+        categoryData = ["Jardinage", "Bricolage", "Social", "Transport", "Achats", "Autre"]
+        self.categoryPicker.delegate = self
+        self.categoryPicker.dataSource = self
         
+        let image: UIImage = UIImage(named: "workshop")!
+        
+        
+        workShopImg = UIImageView(image: image)
+ 
        // self.view.addSubview(workShopImg!)
         
         //self.workShopImg.image = image
@@ -101,21 +115,6 @@ let workShopService: WorkShopService = WorkShopService()
     @objc func addWorkShop() {
         
         
-        /*
-         let date = Date().debugDescription
-         print(date)
-         var dateString = "02-03-2017"
-        var dateFormatter = DateFormatter()
-
-        // This is important - we set our input date format to match our input string
-        // if the format doesn't match you'll get nil from your string, so be careful
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-
-        //`date(from:)` returns an optional so make sure you unwrap when using.
-        var dateFromString: Date? = dateFormatter.date(from: dateString)
-        
-        print(dateFromString)*/
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         let dateBegin = "\(dateBeginEdt.text!) \(houtBeginEdt.text!)"
@@ -123,8 +122,7 @@ let workShopService: WorkShopService = WorkShopService()
         
         let begin = dateFormatter.date(from: dateBegin)!
         let end = dateFormatter.date(from: datEnding)!
-        print(datEnding)
-        print(end)
+
         
         guard let idCreator = self.titleTxt.text,
             let title = self.titleEdt.text,
@@ -147,6 +145,18 @@ let workShopService: WorkShopService = WorkShopService()
 
             self.navigationController?.pushViewController(HomeViewController(), animated: true)
        }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryData.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryData[row]
+    }
+    
     
 
 }
