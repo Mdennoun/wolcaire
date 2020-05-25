@@ -59,7 +59,7 @@ class SignInViewController: UIViewController {
         
         birthdateEdt.inputView = datePicker
         
-        navigationController?.navigationItem.title = "Inscription"
+        navigationItem.title = "Inscription"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.viewTapped(gestureRecognizer:)))
         

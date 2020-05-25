@@ -24,6 +24,10 @@
 		952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0EF2467FE8200F83396 /* UserFactory.swift */; };
 		952EC0F22468023800F83396 /* UserWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0F12468023800F83396 /* UserWebService.swift */; };
 		952EC0F42468288800F83396 /* WorkShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0F32468288800F83396 /* WorkShop.swift */; };
+		952EC0F8246AA10200F83396 /* createWorkShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0F6246AA10200F83396 /* createWorkShopViewController.swift */; };
+		952EC0F9246AA10200F83396 /* createWorkShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */; };
+		952EC0FB246ACCB600F83396 /* WorkShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0FA246ACCB600F83396 /* WorkShopService.swift */; };
+		952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		952EC0EF2467FE8200F83396 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		952EC0F12468023800F83396 /* UserWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWebService.swift; sourceTree = "<group>"; };
 		952EC0F32468288800F83396 /* WorkShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShop.swift; sourceTree = "<group>"; };
+		952EC0F6246AA10200F83396 /* createWorkShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createWorkShopViewController.swift; sourceTree = "<group>"; };
+		952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = createWorkShopViewController.xib; sourceTree = "<group>"; };
+		952EC0FA246ACCB600F83396 /* WorkShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopService.swift; sourceTree = "<group>"; };
+		952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 		0C7C455B2464779200A9CA3F /* wolcare */ = {
 			isa = PBXGroup;
 			children = (
+				952EC0F5246A9ECF00F83396 /* workShop */,
 				0C7C455C2464779200A9CA3F /* AppDelegate.swift */,
 				0C7C455E2464779200A9CA3F /* SceneDelegate.swift */,
 				0C7C45602464779200A9CA3F /* ViewController.swift */,
@@ -112,8 +121,19 @@
 				0C7C457E2464815A00A9CA3F /* LoginFactory.swift */,
 				952EC0EF2467FE8200F83396 /* UserFactory.swift */,
 				952EC0F12468023800F83396 /* UserWebService.swift */,
+				952EC0FA246ACCB600F83396 /* WorkShopService.swift */,
+				952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		952EC0F5246A9ECF00F83396 /* workShop */ = {
+			isa = PBXGroup;
+			children = (
+				952EC0F6246AA10200F83396 /* createWorkShopViewController.swift */,
+				952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */,
+			);
+			path = workShop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952EC0F9246AA10200F83396 /* createWorkShopViewController.xib in Resources */,
 				952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */,
 				0C7C4573246477AA00A9CA3F /* LoginViewController.xib in Resources */,
 				0C7C45692464779600A9CA3F /* LaunchScreen.storyboard in Resources */,
@@ -193,8 +214,11 @@
 				0C7C4572246477AA00A9CA3F /* LoginViewController.swift in Sources */,
 				952EC0F42468288800F83396 /* WorkShop.swift in Sources */,
 				0C7C45612464779200A9CA3F /* ViewController.swift in Sources */,
+				952EC0FB246ACCB600F83396 /* WorkShopService.swift in Sources */,
+				952EC0F8246AA10200F83396 /* createWorkShopViewController.swift in Sources */,
 				952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */,
 				0C7C457A2464802800A9CA3F /* User.swift in Sources */,
+				952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */,
 				0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */,
 				952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */,
 				0C7C455F2464779200A9CA3F /* SceneDelegate.swift in Sources */,

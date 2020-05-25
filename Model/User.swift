@@ -32,8 +32,7 @@ class User: CustomStringConvertible {
         self.password = password
     }
     
-    convenience init (_id: String?,email: String?, password: String?, type: String?, pseudo: String?, firstname: String?, lastname: String?,
-    birthdate: String?, sex: Bool?, photo: String?, requestIssued: Int?, requestFulfilled: Int? ) {
+    convenience init (_id: String?,email: String?, password: String?, type: String?, pseudo: String?, firstname: String?, lastname: String?, birthdate: String?, sex: Bool?, photo: String?, requestIssued: Int?, requestFulfilled: Int? ) {
         self.init(email: email, password: password)
         self._id = _id
         self.email = email

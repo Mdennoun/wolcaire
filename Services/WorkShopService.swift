@@ -1,25 +1,25 @@
 //
-//  UserWebService.swift
+//  WorkShopService.swift
 //  wolcare
 //
-//  Created by Arnaud Salomon on 10/05/2020.
+//  Created by Arnaud Salomon on 12/05/2020.
 //  Copyright © 2020 Mohamed dennoun. All rights reserved.
 //
 
 import Foundation
 
-typealias UserCompletion = ([User]) -> Void
-class UserWebService {
+typealias WorkShopCompletion = ([WorkShop]) -> Void
+
+class WorkShopService {
     
     
-    
-    func newUser(user: User, completion: @escaping (Bool) -> Void) -> Void {
-        guard let usertURL = URL(string: "https://wolcare.herokuapp.com/api/newUser") else {
-            return
+    func neWorkShop(workShop: WorkShop, completion: @escaping (Bool) -> Void) -> Void {
+        guard let workShopURL = URL(string: "http://0.0.0.0:5000/api/newWorkShop") else {
+            return //https://wolcare.herokuapp.com/api/newWorkShop
         }
-        var request = URLRequest(url: usertURL)
+        var request = URLRequest(url: workShopURL)
         request.httpMethod = "POST"
-        request.httpBody = try? JSONSerialization.data(withJSONObject: UserFactory.dictionaryFrom(user: user), options: .fragmentsAllowed)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: WorkShopFactory.dictionaryFrom(workShop: workShop), options: .fragmentsAllowed)
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, res, err) in
             if let httpRes = res as? HTTPURLResponse {
@@ -53,8 +53,8 @@ class UserWebService {
         task.resume()
     }*/
     
-    func getUsers(completion: @escaping UserCompletion) -> Void {
-        guard let userUrl = URL(string: "https://wolcare.herokuapp.com/api/getUsers") else {
+    func getWorkShop(completion: @escaping WorkShopCompletion) -> Void {
+        guard let userUrl = URL(string: "https://wolcare.herokuapp.com/api/getWorkShops") else {
             return;
         }
         let task = URLSession.shared.dataTask(with: userUrl) { (data,res,err) in
@@ -67,27 +67,28 @@ class UserWebService {
                     return
             }
             print(json)
-            let users =  json.compactMap { (obj) -> User? in
-                guard let uzer = obj as? [String: Any] else {
+            let workShop =  json.compactMap { (obj) -> WorkShop? in
+                guard let workShop = obj as? [String: Any] else {
                     return nil
                 }
-                return UserFactory.userFrom(user: uzer)
+                return WorkShopFactory.workShopFrom(workShop: workShop)
             }
             DispatchQueue.main.sync {
-                completion(users)
+                completion(workShop)
             }
-            print(users)
+            print(workShop)
         }
         task.resume()
         
-        let date = Date()
-        let arr = [User(_id: "_id", email: "email", password: "password", type:"type", pseudo : "pseudo", firstname: "firstname", lastname: "lastname", birthdate: date.debugDescription, sex: true, photo: "photo", requestIssued: 1, requestFulfilled: 1 )]
-        completion(arr)
+        /*
+        let arr = [WorkShop(_id: "_id", idCreator: "idCreator", idIntervenant: "idIntervenant", title:"title", workShopDescription: "description", dateAvailable: Date(), datEnd: Date(), category: "cateogry", status: 0, createAt: Date())]
+        completion(arr)*/
     }
     
-
+ 
     
-    func deleteUser(id: String) -> Void {
+    
+    func deleteWorkShop(id: String) -> Void {
         
        //let parameters = ["recipeId": id] as [String : String]
         guard let url = URL(string: "https://wolcare.herokuapp.com/api/deleteUserById/\(id)") else { return }
@@ -169,5 +170,6 @@ class UserWebService {
     }
     
 }
+
 
 

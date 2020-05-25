@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserFactory: CustomStringConvertible {
+class UserFactory {
      
         
     var email: String
@@ -38,10 +38,6 @@ class UserFactory: CustomStringConvertible {
         self.requestFulfilled = requestFulfilled
     }
         
-    var description: String {
-        return "{ Mail: \(self.email ), Password: \(self.password) }"
-    }
-    
     
     static func userFrom(user: [String: Any]) -> User? {
         guard let id = user["_id"] as? String,
