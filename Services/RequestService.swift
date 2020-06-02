@@ -1,27 +1,27 @@
 //
-//  WorkShopService.swift
+//  RequestService.swift
 //  wolcare
 //
-//  Created by Arnaud Salomon on 12/05/2020.
+//  Created by Mohamed dennoun on 02/06/2020.
 //  Copyright © 2020 Mohamed dennoun. All rights reserved.
 //
 
 import Foundation
 
-typealias WorkShopCompletion = ([WorkShop]) -> Void
+typealias RequestCompletion = ([Request]) -> Void
 
-class WorkShopService {
+class RequestService {
     
     
-    func neWorkShop(workShop: WorkShop, completion: @escaping (Bool) -> Void) -> Void {
-        guard let workShopURL = URL(string: "https://wolcare.herokuapp.com/api/newWorkShop") else {
-            return 
+    func newRequest(request: Request, completion: @escaping (Bool) -> Void) -> Void {
+        guard let requestURL = URL(string: "https://wolcare.herokuapp.com/api/newRequest") else {
+            return //https://wolcare.herokuapp.com/api/newRequest
         }
-        var request = URLRequest(url: workShopURL)
-        request.httpMethod = "POST"
-        request.httpBody = try? JSONSerialization.data(withJSONObject: WorkShopFactory.dictionaryFrom(workShop: workShop), options: .fragmentsAllowed)
-        request.setValue("application/json", forHTTPHeaderField: "content-type")
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, res, err) in
+        var urlRequest = URLRequest(url: requestURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: RequestFactory.dictionaryFrom(request: request), options: .fragmentsAllowed)
+        urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")
+        let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, res, err) in
             if let httpRes = res as? HTTPURLResponse {
                 print(httpRes.statusCode)
                 completion(httpRes.statusCode == 201)
@@ -33,31 +33,13 @@ class WorkShopService {
         task.resume()
     }
     
-    /*func modifyUser(user: User, completion: @escaping (Bool) -> Void) -> Void {
-        guard let usertURL = URL(string: "https://wolcare.herokuapp.com/api/updateUser/\(id)") else {
-            return
-        }
-        var request = URLRequest(url: usertURL)
-        request.httpMethod = "POST"
-        request.httpBody = try? JSONSerialization.data(withJSONObject: UserFactory.dictionaryFrom(user: user), options: .fragmentsAllowed)
-        request.setValue("application/json", forHTTPHeaderField: "content-type")
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, res, err) in
-            if let httpRes = res as? HTTPURLResponse {
-                print(httpRes.statusCode)
-                completion(httpRes.statusCode == 201)
-                return
-            }
-            print("Error \(err.debugDescription)")
-            completion(false)
-        })
-        task.resume()
-    }*/
     
-    func getWorkShop(completion: @escaping WorkShopCompletion) -> Void {
-        guard let userUrl = URL(string: "https://wolcare.herokuapp.com/api/getWorkShops") else {
+    func getRequest(completion: @escaping RequestCompletion) -> Void {
+        guard let userUrl = URL(string: "https://wolcare.herokuapp.com/api/getRequests") else {
             return;
         }
         let task = URLSession.shared.dataTask(with: userUrl) { (data,res,err) in
+
             guard let bytes = data,
             err == nil,
             let  json = try? JSONSerialization.jsonObject(with: bytes, options: .allowFragments) as? [Any] else {
@@ -67,31 +49,29 @@ class WorkShopService {
                     return
             }
             print(json)
-            let workShop =  json.compactMap { (obj) -> WorkShop? in
-                guard let workShop = obj as? [String: Any] else {
+            print("help")
+            let request =  json.compactMap { (obj) -> Request? in
+                guard let request = obj as? [String: Any] else {
                     return nil
                 }
-                return WorkShopFactory.workShopFrom(workShop: workShop)
+                return RequestFactory.RequestFrom(request: request)
             }
             DispatchQueue.main.sync {
-                completion(workShop)
+                completion(request)
             }
-            print(workShop)
+            print(request)
         }
         task.resume()
         
-        /*
-        let arr = [WorkShop(_id: "_id", idCreator: "idCreator", idIntervenant: "idIntervenant", title:"title", workShopDescription: "description", dateAvailable: Date(), datEnd: Date(), category: "cateogry", status: 0, createAt: Date())]
-        completion(arr)*/
     }
     
  
     
     
-    func deleteWorkShop(id: String) -> Void {
+    func deleteRequest(id: String) -> Void {
         
        //let parameters = ["recipeId": id] as [String : String]
-        guard let url = URL(string: "https://wolcare.herokuapp.com/api/deleteUserById/\(id)") else { return }
+        guard let url = URL(string: "https://wolcare.herokuapp.com/api/deleteRequestById/\(id)") else { return }
         print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
@@ -129,10 +109,10 @@ class WorkShopService {
     }
     
     
-    func modiUserTEST(id: String) -> Void {
+    func FeatchRequest(id: String) -> Void {
         
        //let parameters = ["recipeId": id] as [String : String]
-        guard let url = URL(string: "https://wolcare.herokuapp.com/api/deleteUser/\(id)") else { return }
+        guard let url = URL(string: "https://wolcare.herokuapp.com/api/featchRequest/\(id)") else { return }
         print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
@@ -170,6 +150,7 @@ class WorkShopService {
     }
     
 }
+
 
 
 

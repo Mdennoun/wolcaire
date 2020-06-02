@@ -39,6 +39,8 @@ let workShopService: WorkShopService = WorkShopService()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         categoryData = ["Jardinage", "Bricolage", "Social", "Transport", "Achats", "Autre"]
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
