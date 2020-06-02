@@ -14,12 +14,14 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet var creationDate: UILabel!
     @IBOutlet var requestDescription: UILabel!
     @IBOutlet var picture: UIImageView!
+    var currentRequest: Request!
+    let requestServices: RequestService = RequestService()
     
     
     class func newInstance(request: Request) -> RequestDetailViewController {
         
         let requestlvc = RequestDetailViewController()
-
+        requestlvc.currentRequest = request
         requestlvc.navigationItem.title = request.title!
             
         
@@ -31,8 +33,8 @@ class RequestDetailViewController: UIViewController {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
                         requestlvc.picture?.image = image
-                        requestlvc.creatorPseudo?.text = request.idUser!
-                        requestlvc.creationDate?.text = request.idUser!
+                        requestlvc.creatorPseudo?.text = request.psuedoUser!
+                        requestlvc.creationDate?.text = request.createAt!
                         requestlvc.requestDescription?.text = request.Requestdescription!
                     }
                 }
@@ -52,9 +54,50 @@ class RequestDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteTapped))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
 
         // Do any additional setup after loading the view.
     }
+    @objc func deleteTapped() {
+    
+        let actionYes : [String: () -> Void] = [ "OUI" : { (
+            print("tapped YES")
+            
+            
+        )
+            print("tapped YES i tried")
+            self.requestServices.deleteRequest(id: self.currentRequest._id!)
+            
+            let actionOk: () -> Void = { (
+                print("tapped OK")
+            ) }
+            self.showCustomAlertWith(
+            okButtonAction: actionOk, // This is optional
+            message: "La requete a bien été supprimé !",
+            descMsg: "",
+            itemimage: nil,
+            actions: nil)
+            }]
+        let actionNo : [String: () -> Void] = [ "NON" : { (
+            print("tapped NO")
+        ) }]
+        let arrayActions = [actionYes, actionNo]
+        
+        
+        self.showCustomAlertWith(
+            message: "Êtes-vous sur de vouloir supprimer la recette ?",
+            descMsg: "Attention: toutes la photo liée à la requete sera supprimé.",
+            itemimage: nil,
+            actions: arrayActions)
+        
+        
+        
+        
+          
+         
+      }
 
 
     /*
