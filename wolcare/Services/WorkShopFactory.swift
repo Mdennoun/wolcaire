@@ -11,36 +11,42 @@ import Foundation
 class WorkShopFactory {
     
     static func workShopFrom(workShop: [String:Any]) -> WorkShop? {
-        guard let id = workShop["_id"] as? String,
-            let idIntervenant = workShop["idIntervenant"] as? String,
-            let workShopDescription = workShop["description"] as? String,
-            let title = workShop["title"] as? String,
-            let category = workShop["idCategory"] as? String,
-            let createAt = workShop["createAt"] as? Date,
-            let status = workShop["status"] as? Int,
+        guard //let id = workShop["_id"] as? String,
+            let idCategory = workShop["idCategory"] as? String,
             let idCreator = workShop["idCreator"] as? String,
+            let idIntervenant = workShop["idIntervenant"] as? String,
+            let title = workShop["title"] as? String,
+            let maxPeoplesAllowed = workShop["maxPeoplesAllowed"] as? Int,
+            let status = workShop["status"] as? Int,
             let dateAvailable = workShop["dateAvailable"] as? String,
-            let datEnd = workShop["datEnd"] as? String else {
+            let datEnd = workShop["datEnd"] as? String,
+            let createAt = workShop["createAt"] as? String,
+            let photoPath = workShop["photoPath"] as? String,
+            let WorkshopDescription = workShop["description"] as? String else {
                 return nil
         }
         
         
         
-        return WorkShop(_id: id,idCreator: idCreator, idIntervenant: idIntervenant, title: title, workShopDescription: workShopDescription, dateAvailable: dateAvailable, datEnd: datEnd, category: category, status: status, createAt: createAt)
+        return WorkShop(idCategory: idCategory, idCreator: idCreator, idIntervenant: idIntervenant, title : title, maxPeoplesAllowed: maxPeoplesAllowed, status: status, dateAvailable: dateAvailable, createAt: createAt , datEnd: datEnd, photoPath: photoPath, WorkshopDescription: WorkshopDescription)
     }
     
    
     static func dictionaryFrom(workShop: WorkShop) -> [String: Any] {
         return [
-            "idCreator": workShop.idCreator ?? nil,
-            "idIntervenant": workShop.idIntervenant ?? nil,
-            "description": workShop.workShopDescription ?? "defaultdescription",
-            "title": workShop.title ?? "default_Title",
-            "category": workShop.category,
-            "dateAvailable": workShop.dateAvailable,
-            "datEnd": workShop.datEnd ,
+            "idCategory": workShop.idCategory,
+            "idCreator": workShop.idCreator,
+            "idIntervenant": workShop.idIntervenant,
+            "_id": workShop._id ?? nil,
+            "idIntervenant": workShop.idIntervenant,
+            "title": workShop.title ?? nil,
+            "maxPeoplesAllowed": workShop.maxPeoplesAllowed,
             "status": workShop.status ?? 0,
-            
+            "dateAvailable": workShop.dateAvailable ,
+            "datEnd": workShop.datEnd,
+            "createAt": workShop.createAt,
+            "photoPath": workShop.photoPath,
+            "description": workShop.WorkshopDescription
             
 
         ]

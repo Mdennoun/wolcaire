@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequestDetailViewController" customModule="wolcare" customModuleProvider="target">
             <connections>
+                <outlet property="Gotomessage" destination="Qc3-uf-2Qy" id="o2z-v4-209"/>
                 <outlet property="creationDate" destination="qJA-kx-QCA" id="jiI-bG-I6O"/>
                 <outlet property="creatorPseudo" destination="F7k-Js-a8p" id="RSZ-Kr-mpm"/>
                 <outlet property="picture" destination="AcB-kI-tWI" id="cUf-rD-q1i"/>
@@ -60,12 +61,23 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc3-uf-2Qy">
+                    <rect key="frame" x="126" y="832" width="162" height="30"/>
+                    <color key="backgroundColor" red="0.3578796762" green="0.50135922560000001" blue="0.72627940000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Répondre a la demande">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="Gotomessage:" destination="-1" eventType="touchUpInside" id="rMk-Oq-WqV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="qJA-kx-QCA" firstAttribute="leading" secondItem="Z4d-5D-CyJ" secondAttribute="trailing" constant="61" id="3DB-G2-oNu"/>
                 <constraint firstItem="Z4d-5D-CyJ" firstAttribute="top" secondItem="Wao-IY-Hw9" secondAttribute="bottom" constant="15" id="4a6-bT-ntX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="F7k-Js-a8p" secondAttribute="trailing" constant="164" id="6R7-nB-ad5"/>
+                <constraint firstItem="Qc3-uf-2Qy" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="AjL-vv-EVI"/>
                 <constraint firstItem="Wao-IY-Hw9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="BwK-MV-d2w"/>
                 <constraint firstItem="F7k-Js-a8p" firstAttribute="top" secondItem="AcB-kI-tWI" secondAttribute="bottom" constant="20" id="Jjb-G9-ToO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aln-TH-27B" secondAttribute="bottom" constant="277" id="LL4-RN-i31"/>
@@ -76,11 +88,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aln-TH-27B" secondAttribute="trailing" constant="20" id="aBN-V9-iYd"/>
                 <constraint firstItem="bxR-Gc-lq7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="btH-ku-48i"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AcB-kI-tWI" secondAttribute="trailing" constant="10" id="cUR-kz-8iM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qc3-uf-2Qy" secondAttribute="trailing" constant="126" id="f7T-qh-HZv"/>
                 <constraint firstItem="AcB-kI-tWI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="fkW-X0-dea"/>
                 <constraint firstItem="AcB-kI-tWI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="kJC-fa-cyA"/>
                 <constraint firstItem="Wao-IY-Hw9" firstAttribute="top" secondItem="AcB-kI-tWI" secondAttribute="bottom" constant="30" id="n07-Am-O1T"/>
                 <constraint firstItem="bxR-Gc-lq7" firstAttribute="top" secondItem="Z4d-5D-CyJ" secondAttribute="bottom" constant="15" id="ouG-yM-qpe"/>
                 <constraint firstItem="aln-TH-27B" firstAttribute="top" secondItem="bxR-Gc-lq7" secondAttribute="bottom" constant="15" id="ryo-QE-T0C"/>
+                <constraint firstItem="Qc3-uf-2Qy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="126" id="tCC-7v-zN4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bxR-Gc-lq7" secondAttribute="trailing" constant="298" id="v3Y-SR-eqf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

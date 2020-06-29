@@ -13,7 +13,8 @@ typealias RequestCompletion = ([Request]) -> Void
 class RequestService {
     
     
-    func newRequest(request: Request, completion: @escaping (Bool) -> Void) -> Void {
+    
+    func newRequest(request: Request, photo : Data?, completion: @escaping (Bool) -> Void) -> Void {
         guard let requestURL = URL(string: "https://wolcare.herokuapp.com/api/newRequest") else {
             return //https://wolcare.herokuapp.com/api/newRequest
         }
@@ -21,6 +22,7 @@ class RequestService {
         urlRequest.httpMethod = "POST"
         urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: RequestFactory.dictionaryFrom(request: request), options: .fragmentsAllowed)
         urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")
+        
         let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, res, err) in
             if let httpRes = res as? HTTPURLResponse {
                 print(httpRes.statusCode)
@@ -148,6 +150,8 @@ class RequestService {
         
         
     }
+    
+    
     
 }
 

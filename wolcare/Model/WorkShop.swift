@@ -9,54 +9,64 @@
 import Foundation
 
 class WorkShop: CustomStringConvertible {
- 
     
+    
+    var _id: String?
+    var idCategory: String?
     var idCreator: String?
     var idIntervenant: String?
-    var title: String?
-    var workShopDescription: String?
-    var dateAvailable: String?
-    var datEnd: String?
-    var category: String?
-    var _id: String?
+    var title : String?
+    var maxPeoplesAllowed: Int?
     var status: Int?
-    var createAt: Date?
+    var dateAvailable: String?
+    var createAt: String?
+    var datEnd: String?
+    var photoPath: String?
+    var WorkshopDescription: String?
+    
+    
 
     
-    init(idCreator: String?, idIntervenant: String?, title: String?, workShopDescription: String?, dateAvailable: String?, datEnd: String?, category: String?, status: Int?, createAt: Date?) {
+    init(idCategory: String?, idCreator: String?, idIntervenant: String?, title : String?, maxPeoplesAllowed: Int?, status: Int?, dateAvailable: String?, createAt: String? , datEnd: String?, photoPath: String?, WorkshopDescription: String?) {
+   
         
-        
+        self.idCategory = idCategory
         self.idCreator = idCreator
         self.idIntervenant = idIntervenant
         self.title = title
-        self.workShopDescription = workShopDescription
-        self.dateAvailable = dateAvailable
-        self.datEnd = datEnd
-        self.category = category
+        self.maxPeoplesAllowed = maxPeoplesAllowed
         self.status = status
+        self.dateAvailable = dateAvailable
+        self.createAt = createAt
+        self.photoPath = photoPath
+        self.WorkshopDescription = description
+    
         
         
    
     } 
     
     
-    convenience init(_id: String?,idCreator: String?, idIntervenant: String?, title: String?, workShopDescription: String?, dateAvailable: String?, datEnd: String?, category: String?, status: Int?, createAt: Date?) {
-        self.init(idCreator: idCreator, idIntervenant: idIntervenant, title: title, workShopDescription: workShopDescription, dateAvailable: dateAvailable, datEnd: datEnd, category: category, status: status, createAt: createAt)
+    convenience init (_id: String?, idCategory: String?, idCreator: String?, idIntervenant: String?, title : String?, maxPeoplesAllowed: Int?, status: Int?, dateAvailable: String?, createAt: String? , datEnd: String?, photoPath: String?, WorkshopDescription: String?) {
+        self.init(idCategory: idCategory, idCreator: idCategory, idIntervenant: idCategory, title : title, maxPeoplesAllowed: maxPeoplesAllowed, status: status, dateAvailable: dateAvailable, createAt: createAt, datEnd: datEnd, photoPath: photoPath, WorkshopDescription: WorkshopDescription)
+        
          self._id = _id
+         self.idCategory = idCategory
          self.idCreator = idCreator
          self.idIntervenant = idIntervenant
          self.title = title
-         self.workShopDescription = workShopDescription
-         self.dateAvailable = dateAvailable
-         self.datEnd = datEnd
-         self.category = category
+         self.maxPeoplesAllowed = maxPeoplesAllowed
          self.status = status
+         self.dateAvailable = dateAvailable
          self.createAt = createAt
+         self.datEnd = datEnd
+         self.photoPath = photoPath
+         self.WorkshopDescription = WorkshopDescription
          
     
      }
     
     var description: String {
-    return "{ idCreator: \(self.idCreator ), idIntervenant: \(self.idIntervenant), title: \(self.title), description: \(self.workShopDescription), dateAvailable: \(self.dateAvailable), datEnd: \(self.datEnd), category: \(self.category), id: \(_id), createAt: \(self.createAt), status: \(self.status) }"
+    return "{ _id: \(self._id ), idCategory: \(self.idCategory ), idCreator: \(self.idCreator ), idIntervenant: \(self.idIntervenant ), title: \(self.title ), maxPeoplesAllowed: \(self.maxPeoplesAllowed ), status: \(self.status ), dateAvailable: \(self.dateAvailable ), createAt: \(self.createAt ), photoPath: \(self.photoPath), description: \(self.WorkshopDescription ) }"
     }
 }

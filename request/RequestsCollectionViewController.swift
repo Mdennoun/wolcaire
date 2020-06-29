@@ -174,22 +174,16 @@ class RequestsCollectionViewController: UIViewController , UICollectionViewDeleg
 
     @objc func addTapped() {
         
+        print("add")
+        let vc = RequestCreateViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
-              print("add")
-             
-          }
+    }
     
-     @objc func reset(sender: UISwipeGestureRecognizer) {
+    @objc func reset(sender: UISwipeGestureRecognizer) {
+        
         let cell = sender.view as! UICollectionViewCell
             print("tapped rest")
-            
-            
-        
-           
-        
-        
-        
-       
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

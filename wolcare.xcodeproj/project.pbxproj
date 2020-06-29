@@ -3,13 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C006DAF24A794860086D249 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C006DAD24A794860086D249 /* MessageViewController.swift */; };
+		0C006DB024A794860086D249 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C006DAE24A794860086D249 /* MessageViewController.xib */; };
+		0C006DB324A7CB420086D249 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C006DB124A7CB420086D249 /* MessageCollectionViewCell.swift */; };
+		0C006DB424A7CB420086D249 /* MessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */; };
 		0C40C6772485CF90002DDA5A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40C6762485CF90002DDA5A /* Request.swift */; };
 		0C40C6792485D1CC002DDA5A /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40C6782485D1CC002DDA5A /* RequestFactory.swift */; };
 		0C40C67B2485D516002DDA5A /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40C67A2485D516002DDA5A /* RequestService.swift */; };
+		0C446DDB2492362200E18560 /* WorkshopCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C446DD92492362200E18560 /* WorkshopCollectionViewController.swift */; };
+		0C446DDC2492362200E18560 /* WorkshopCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C446DDA2492362200E18560 /* WorkshopCollectionViewController.xib */; };
+		0C446DE72492403F00E18560 /* WorkshopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C446DE52492403F00E18560 /* WorkshopCollectionViewCell.swift */; };
+		0C446DE82492403F00E18560 /* WorkshopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C446DE62492403F00E18560 /* WorkshopCollectionViewCell.xib */; };
+		0C7A2C1A2487B4B7001903A7 /* RequestCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7A2C182487B4B7001903A7 /* RequestCreateViewController.swift */; };
+		0C7A2C1B2487B4B7001903A7 /* RequestCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7A2C192487B4B7001903A7 /* RequestCreateViewController.xib */; };
 		0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C455C2464779200A9CA3F /* AppDelegate.swift */; };
 		0C7C455F2464779200A9CA3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C455E2464779200A9CA3F /* SceneDelegate.swift */; };
 		0C7C45612464779200A9CA3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C45602464779200A9CA3F /* ViewController.swift */; };
@@ -32,6 +42,7 @@
 		0CE7EBE72486FDC800A6D36B /* CommonAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EBE32486FDC800A6D36B /* CommonAlertVC.swift */; };
 		0CE7EBE82486FDC800A6D36B /* CommonAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7EBE42486FDC800A6D36B /* CommonAlertVC.xib */; };
 		0CE7EBE92486FDC800A6D36B /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EBE52486FDC800A6D36B /* ExtensionUIViewController.swift */; };
+		41534FD1592BC5579CCACD8A /* Pods_wolcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA709290A404E6EFA39B6755 /* Pods_wolcare.framework */; };
 		952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0EB2466F3FB00F83396 /* SignInViewController.swift */; };
 		952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952EC0EC2466F3FB00F83396 /* SignInViewController.xib */; };
 		952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0EF2467FE8200F83396 /* UserFactory.swift */; };
@@ -44,9 +55,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C006DAD24A794860086D249 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		0C006DAE24A794860086D249 /* MessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
+		0C006DB124A7CB420086D249 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCollectionViewCell.xib; sourceTree = "<group>"; };
 		0C40C6762485CF90002DDA5A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0C40C6782485D1CC002DDA5A /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		0C40C67A2485D516002DDA5A /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		0C446DD92492362200E18560 /* WorkshopCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopCollectionViewController.swift; sourceTree = "<group>"; };
+		0C446DDA2492362200E18560 /* WorkshopCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkshopCollectionViewController.xib; sourceTree = "<group>"; };
+		0C446DE52492403F00E18560 /* WorkshopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C446DE62492403F00E18560 /* WorkshopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkshopCollectionViewCell.xib; sourceTree = "<group>"; };
+		0C7A2C182487B4B7001903A7 /* RequestCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateViewController.swift; sourceTree = "<group>"; };
+		0C7A2C192487B4B7001903A7 /* RequestCreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCreateViewController.xib; sourceTree = "<group>"; };
 		0C7C45592464779200A9CA3F /* wolcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wolcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7C455C2464779200A9CA3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7C455E2464779200A9CA3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +92,7 @@
 		0CE7EBE32486FDC800A6D36B /* CommonAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonAlertVC.swift; sourceTree = "<group>"; };
 		0CE7EBE42486FDC800A6D36B /* CommonAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonAlertVC.xib; sourceTree = "<group>"; };
 		0CE7EBE52486FDC800A6D36B /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		38B4346D0D6CEEA2FD078E1E /* Pods-wolcare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolcare.debug.xcconfig"; path = "Target Support Files/Pods-wolcare/Pods-wolcare.debug.xcconfig"; sourceTree = "<group>"; };
 		952EC0EB2466F3FB00F83396 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		952EC0EC2466F3FB00F83396 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		952EC0EF2467FE8200F83396 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
@@ -80,6 +102,8 @@
 		952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = createWorkShopViewController.xib; sourceTree = "<group>"; };
 		952EC0FA246ACCB600F83396 /* WorkShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopService.swift; sourceTree = "<group>"; };
 		952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopFactory.swift; sourceTree = "<group>"; };
+		CE11869625734E2D3A275876 /* Pods-wolcare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolcare.release.xcconfig"; path = "Target Support Files/Pods-wolcare/Pods-wolcare.release.xcconfig"; sourceTree = "<group>"; };
+		DA709290A404E6EFA39B6755 /* Pods_wolcare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wolcare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +111,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41534FD1592BC5579CCACD8A /* Pods_wolcare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C006DAC24A7934D0086D249 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				0C006DAD24A794860086D249 /* MessageViewController.swift */,
+				0C006DAE24A794860086D249 /* MessageViewController.xib */,
+				0C006DB124A7CB420086D249 /* MessageCollectionViewCell.swift */,
+				0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
 		0C40C67C2485D856002DDA5A /* request */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +138,8 @@
 				0CE7EBDA248692D400A6D36B /* RequestCollectionViewCell.xib */,
 				0CE7EBDD2486D3BD00A6D36B /* RequestDetailViewController.swift */,
 				0CE7EBDE2486D3BD00A6D36B /* RequestDetailViewController.xib */,
+				0C7A2C182487B4B7001903A7 /* RequestCreateViewController.swift */,
+				0C7A2C192487B4B7001903A7 /* RequestCreateViewController.xib */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -109,9 +147,12 @@
 		0C7C45502464779200A9CA3F = {
 			isa = PBXGroup;
 			children = (
+				0C006DAC24A7934D0086D249 /* message */,
 				0C40C67C2485D856002DDA5A /* request */,
 				0C7C455B2464779200A9CA3F /* wolcare */,
 				0C7C455A2464779200A9CA3F /* Products */,
+				688D6C182FB766E3105704B8 /* Pods */,
+				6FEED992E82CA18DD7D55911 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,11 +223,32 @@
 			path = CustomAlert;
 			sourceTree = "<group>";
 		};
+		688D6C182FB766E3105704B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38B4346D0D6CEEA2FD078E1E /* Pods-wolcare.debug.xcconfig */,
+				CE11869625734E2D3A275876 /* Pods-wolcare.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6FEED992E82CA18DD7D55911 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA709290A404E6EFA39B6755 /* Pods_wolcare.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		952EC0F5246A9ECF00F83396 /* workShop */ = {
 			isa = PBXGroup;
 			children = (
 				952EC0F6246AA10200F83396 /* createWorkShopViewController.swift */,
 				952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */,
+				0C446DD92492362200E18560 /* WorkshopCollectionViewController.swift */,
+				0C446DDA2492362200E18560 /* WorkshopCollectionViewController.xib */,
+				0C446DE52492403F00E18560 /* WorkshopCollectionViewCell.swift */,
+				0C446DE62492403F00E18560 /* WorkshopCollectionViewCell.xib */,
 			);
 			path = workShop;
 			sourceTree = "<group>";
@@ -198,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C7C456D2464779600A9CA3F /* Build configuration list for PBXNativeTarget "wolcare" */;
 			buildPhases = (
+				926EB4A9C8F00396CDD68716 /* [CP] Check Pods Manifest.lock */,
 				0C7C45552464779200A9CA3F /* Sources */,
 				0C7C45562464779200A9CA3F /* Frameworks */,
 				0C7C45572464779200A9CA3F /* Resources */,
+				271DB68A7A56B48324A7D46F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,19 +314,66 @@
 			buildActionMask = 2147483647;
 			files = (
 				952EC0F9246AA10200F83396 /* createWorkShopViewController.xib in Resources */,
+				0C446DDC2492362200E18560 /* WorkshopCollectionViewController.xib in Resources */,
 				952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */,
+				0C7A2C1B2487B4B7001903A7 /* RequestCreateViewController.xib in Resources */,
 				0C7C4573246477AA00A9CA3F /* LoginViewController.xib in Resources */,
 				0C7C45692464779600A9CA3F /* LaunchScreen.storyboard in Resources */,
 				0C7C45662464779600A9CA3F /* Assets.xcassets in Resources */,
 				0C7C457724647F0D00A9CA3F /* HomeViewController.xib in Resources */,
 				0CE7EBE82486FDC800A6D36B /* CommonAlertVC.xib in Resources */,
 				0CE7EBDC248692D500A6D36B /* RequestCollectionViewCell.xib in Resources */,
+				0C006DB024A794860086D249 /* MessageViewController.xib in Resources */,
 				0CE7EBD82486802100A6D36B /* RequestsCollectionViewController.xib in Resources */,
+				0C446DE82492403F00E18560 /* WorkshopCollectionViewCell.xib in Resources */,
 				0CE7EBE02486D3BE00A6D36B /* RequestDetailViewController.xib in Resources */,
+				0C006DB424A7CB420086D249 /* MessageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		271DB68A7A56B48324A7D46F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wolcare/Pods-wolcare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wolcare/Pods-wolcare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wolcare/Pods-wolcare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		926EB4A9C8F00396CDD68716 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wolcare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0C7C45552464779200A9CA3F /* Sources */ = {
@@ -275,15 +386,20 @@
 				0CE7EBD72486802100A6D36B /* RequestsCollectionViewController.swift in Sources */,
 				0C40C6772485CF90002DDA5A /* Request.swift in Sources */,
 				0CE7EBDF2486D3BE00A6D36B /* RequestDetailViewController.swift in Sources */,
+				0C006DAF24A794860086D249 /* MessageViewController.swift in Sources */,
 				0C40C6792485D1CC002DDA5A /* RequestFactory.swift in Sources */,
+				0C006DB324A7CB420086D249 /* MessageCollectionViewCell.swift in Sources */,
 				0C7C4572246477AA00A9CA3F /* LoginViewController.swift in Sources */,
 				0CE7EBDB248692D500A6D36B /* RequestCollectionViewCell.swift in Sources */,
 				952EC0F42468288800F83396 /* WorkShop.swift in Sources */,
+				0C446DE72492403F00E18560 /* WorkshopCollectionViewCell.swift in Sources */,
 				0C7C45612464779200A9CA3F /* ViewController.swift in Sources */,
 				952EC0FB246ACCB600F83396 /* WorkShopService.swift in Sources */,
 				0CE7EBE92486FDC800A6D36B /* ExtensionUIViewController.swift in Sources */,
+				0C446DDB2492362200E18560 /* WorkshopCollectionViewController.swift in Sources */,
 				952EC0F8246AA10200F83396 /* createWorkShopViewController.swift in Sources */,
 				952EC0F02467FE8200F83396 /* UserFactory.swift in Sources */,
+				0C7A2C1A2487B4B7001903A7 /* RequestCreateViewController.swift in Sources */,
 				0C7C457A2464802800A9CA3F /* User.swift in Sources */,
 				952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */,
 				0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */,
@@ -426,6 +542,7 @@
 		};
 		0C7C456E2464779600A9CA3F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B4346D0D6CEEA2FD078E1E /* Pods-wolcare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +560,7 @@
 		};
 		0C7C456F2464779600A9CA3F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE11869625734E2D3A275876 /* Pods-wolcare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

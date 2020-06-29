@@ -8,7 +8,7 @@
 
 import UIKit
 
-class createWorkShopViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class createWorkShopViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
 
     @IBOutlet var workShopImg: UIImageView!
@@ -21,9 +21,10 @@ class createWorkShopViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet var hourEndTxt: UILabel!
     @IBOutlet var hourEndEdt: UITextField!
     @IBOutlet var descriptionTxt: UILabel!
-    @IBOutlet var descriptionEdt: UITextField!
+    @IBOutlet var descriptionEdt: UITextView!
     @IBOutlet var categoryPicker: UIPickerView!
-    
+    @IBOutlet var cameraButton: UIButton!
+    @IBOutlet var libraryButton: UIButton!
     
     private var dateBeginPicker: UIDatePicker?
     private var hourBeginPicker: UIDatePicker?
@@ -85,6 +86,21 @@ let workShopService: WorkShopService = WorkShopService()
         view.addGestureRecognizer(tapGesture)
         
     }
+    @IBAction func camera(sender: Any?) {
+          presentUIImagePicker(sourceType: .camera)
+      }
+      
+      @IBAction func library(sender: Any?) {
+          presentUIImagePicker(sourceType: .photoLibrary)
+      }
+    private func presentUIImagePicker(sourceType: UIImagePickerController.SourceType) {
+           let picker = UIImagePickerController()
+           picker.delegate = self
+           picker.sourceType = sourceType
+           present(picker, animated: true, completion: nil)
+       }
+    
+    
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -139,7 +155,8 @@ let workShopService: WorkShopService = WorkShopService()
                 return
         }
 
-        let workShop = WorkShop(_id: nil,idCreator: nil, idIntervenant: nil, title: title, workShopDescription: detail, dateAvailable: begin.debugDescription, datEnd: end.debugDescription, category: category, status: 0, createAt: nil)
+        let workShop = WorkShop(_id: nil, idCategory: nil, idCreator: nil, idIntervenant: nil, title: title, maxPeoplesAllowed: 10, status: 0, dateAvailable: begin.debugDescription, createAt: nil, datEnd: end.debugDescription, photoPath: "photoPath", WorkshopDescription: "test des")
+            
 
         self.workShopService.neWorkShop(workShop: workShop) { (success) in
             print("\(success)")
@@ -162,3 +179,28 @@ let workShopService: WorkShopService = WorkShopService()
     
 
 }
+extension createWorkShopViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage else {
+            dismiss(animated: true, completion: nil)
+            
+            return
+        }
+        DispatchQueue.main.async {
+            self.workShopImg.image = chosenImage
+            self.workShopImg.setNeedsDisplay()
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
+   
+}
+

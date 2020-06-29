@@ -14,6 +14,7 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet var creationDate: UILabel!
     @IBOutlet var requestDescription: UILabel!
     @IBOutlet var picture: UIImageView!
+    @IBOutlet var Gotomessage: UIButton!
     var currentRequest: Request!
     let requestServices: RequestService = RequestService()
     
@@ -59,6 +60,13 @@ class RequestDetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func Gotomessage(_ sender: Any) {
+        let msgController = MessageViewController()
+        self.navigationController?.pushViewController(msgController, animated: true)
+        
+        
+        
     }
     @objc func deleteTapped() {
     

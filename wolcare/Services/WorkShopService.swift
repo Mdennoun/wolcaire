@@ -12,6 +12,38 @@ typealias WorkShopCompletion = ([WorkShop]) -> Void
 
 class WorkShopService {
     
+    func getWorkshop(completion: @escaping WorkShopCompletion) -> Void {
+        guard let userUrl = URL(string: "https://wolcare.herokuapp.com/api/getWorkShops") else {
+            return;
+        }
+        let task = URLSession.shared.dataTask(with: userUrl) { (data,res,err) in
+
+            guard let bytes = data,
+            err == nil,
+            let  json = try? JSONSerialization.jsonObject(with: bytes, options: .allowFragments) as? [Any] else {
+                DispatchQueue.main.sync {
+                    completion([])
+                }
+                    return
+            }
+            
+            print("help")
+            print(json)
+            
+            let request =  json.compactMap { (obj) -> WorkShop? in
+                guard let workshop = obj as? [String: Any] else {
+                    return nil
+                }
+                return WorkShopFactory.workShopFrom(workShop: workshop)
+            }
+            DispatchQueue.main.sync {
+                completion(request)
+            }
+            print(request)
+        }
+        task.resume()
+        
+    }
     
     func neWorkShop(workShop: WorkShop, completion: @escaping (Bool) -> Void) -> Void {
         guard let workShopURL = URL(string: "https://wolcare.herokuapp.com/api/newWorkShop") else {
