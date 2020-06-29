@@ -54,7 +54,16 @@ class MessageViewController: UIViewController, UITextViewDelegate, UICollectionV
         
         cell.text!.text = message.text
         //cell.text.backgroundColor = .lightGray
-       cell.text.backgroundColor = UIColor(patternImage: UIImage(named: "light-grey-background")!)
+        //cell.text.backgroundColor = UIColor(patternImage: UIImage(named: "light-grey-background")!)
+        //cell.text.isHighlighted = true
+        //cell.text.highlightedTextColor = .lightGray
+        cell.text.layer.borderColor  = UIColor.blue.cgColor
+        cell.text.layer.cornerRadius = 10
+        cell.text.layer.masksToBounds = true
+        cell.text.layer.borderWidth = 3
+        cell.text.textAlignment = .center
+        cell.text.font = UIFont(name: "HelveticaNeue-medium", size: CGFloat(14))
+        cell.text.layer.borderColor  = UIColor.red.cgColor
         
         
         cell.picture?.isHidden = true

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,10 +36,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2d-3f-zTd">
-                                <rect key="frame" x="119" y="-21" width="450" height="170"/>
+                                <rect key="frame" x="119" y="21" width="450" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="W4L-u6-hht"/>
-                                    <constraint firstAttribute="height" constant="170" id="sxg-zd-h2d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -50,6 +49,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="O2d-3f-zTd" secondAttribute="bottom" constant="21" id="C86-aw-PVE"/>
+                            <constraint firstItem="O2d-3f-zTd" firstAttribute="top" secondItem="6Gm-D8-9iH" secondAttribute="top" constant="21" id="Iyy-uA-68h"/>
                             <constraint firstItem="O2d-3f-zTd" firstAttribute="centerX" secondItem="6Gm-D8-9iH" secondAttribute="centerX" id="Lwt-Co-s5N"/>
                             <constraint firstItem="yaI-pV-cBr" firstAttribute="top" secondItem="6Gm-D8-9iH" secondAttribute="top" constant="20" id="NbN-uL-g0t"/>
                             <constraint firstItem="1Uj-bW-8A5" firstAttribute="leading" secondItem="6Gm-D8-9iH" secondAttribute="leading" constant="20" id="RCh-lq-lkF"/>
@@ -77,6 +78,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

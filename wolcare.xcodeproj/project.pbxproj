@@ -52,6 +52,8 @@
 		952EC0F9246AA10200F83396 /* createWorkShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */; };
 		952EC0FB246ACCB600F83396 /* WorkShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0FA246ACCB600F83396 /* WorkShopService.swift */; };
 		952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */; };
+		9B9198CE24AA303400ED85C9 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9198CC24AA303400ED85C9 /* MessageTableViewController.swift */; };
+		9B9198D124AA340800ED85C9 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9198D024AA340800ED85C9 /* MessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = createWorkShopViewController.xib; sourceTree = "<group>"; };
 		952EC0FA246ACCB600F83396 /* WorkShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopService.swift; sourceTree = "<group>"; };
 		952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopFactory.swift; sourceTree = "<group>"; };
+		9B9198CC24AA303400ED85C9 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		9B9198D024AA340800ED85C9 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		CE11869625734E2D3A275876 /* Pods-wolcare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolcare.release.xcconfig"; path = "Target Support Files/Pods-wolcare/Pods-wolcare.release.xcconfig"; sourceTree = "<group>"; };
 		DA709290A404E6EFA39B6755 /* Pods_wolcare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wolcare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,6 +129,8 @@
 				0C006DAE24A794860086D249 /* MessageViewController.xib */,
 				0C006DB124A7CB420086D249 /* MessageCollectionViewCell.swift */,
 				0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */,
+				9B9198CC24AA303400ED85C9 /* MessageTableViewController.swift */,
+				9B9198D024AA340800ED85C9 /* MessageTableViewCell.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 			files = (
 				0C7C457624647F0D00A9CA3F /* HomeViewController.swift in Sources */,
 				0C40C67B2485D516002DDA5A /* RequestService.swift in Sources */,
+				9B9198D124AA340800ED85C9 /* MessageTableViewCell.swift in Sources */,
 				0CE7EBE62486FDC800A6D36B /* UIViewExtension.swift in Sources */,
 				0CE7EBD72486802100A6D36B /* RequestsCollectionViewController.swift in Sources */,
 				0C40C6772485CF90002DDA5A /* Request.swift in Sources */,
@@ -402,6 +409,7 @@
 				0C7A2C1A2487B4B7001903A7 /* RequestCreateViewController.swift in Sources */,
 				0C7C457A2464802800A9CA3F /* User.swift in Sources */,
 				952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */,
+				9B9198CE24AA303400ED85C9 /* MessageTableViewController.swift in Sources */,
 				0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */,
 				952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */,
 				0CE7EBE72486FDC800A6D36B /* CommonAlertVC.swift in Sources */,
@@ -547,6 +555,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = wolcare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -565,6 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = wolcare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
