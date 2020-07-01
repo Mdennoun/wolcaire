@@ -52,6 +52,7 @@
 		952EC0F9246AA10200F83396 /* createWorkShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */; };
 		952EC0FB246ACCB600F83396 /* WorkShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0FA246ACCB600F83396 /* WorkShopService.swift */; };
 		952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */; };
+		9B5AFB2F24ACB78300F6063E /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5AFB2E24ACB78300F6063E /* FoodViewController.swift */; };
 		9B9198CE24AA303400ED85C9 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9198CC24AA303400ED85C9 /* MessageTableViewController.swift */; };
 		9B9198D124AA340800ED85C9 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9198D024AA340800ED85C9 /* MessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = createWorkShopViewController.xib; sourceTree = "<group>"; };
 		952EC0FA246ACCB600F83396 /* WorkShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopService.swift; sourceTree = "<group>"; };
 		952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopFactory.swift; sourceTree = "<group>"; };
+		9B5AFB2E24ACB78300F6063E /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		9B9198CC24AA303400ED85C9 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		9B9198D024AA340800ED85C9 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		CE11869625734E2D3A275876 /* Pods-wolcare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolcare.release.xcconfig"; path = "Target Support Files/Pods-wolcare/Pods-wolcare.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */,
 				9B9198CC24AA303400ED85C9 /* MessageTableViewController.swift */,
 				9B9198D024AA340800ED85C9 /* MessageTableViewCell.swift */,
+				9B5AFB2E24ACB78300F6063E /* FoodViewController.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				9B9198CE24AA303400ED85C9 /* MessageTableViewController.swift in Sources */,
 				0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */,
 				952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */,
+				9B5AFB2F24ACB78300F6063E /* FoodViewController.swift in Sources */,
 				0CE7EBE72486FDC800A6D36B /* CommonAlertVC.swift in Sources */,
 				0C7C455F2464779200A9CA3F /* SceneDelegate.swift in Sources */,
 				0C7C457F2464815A00A9CA3F /* LoginFactory.swift in Sources */,
