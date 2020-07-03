@@ -49,10 +49,12 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
 
     
     
-        fileprivate let cellId = "id123"
+    fileprivate let cellId = "id123"
 
-            let messagesFromServer = [
-                ChatMessage(text: "Here's my very first message", isIncoming: true, date: Date.dateFromCustomString(customString: "08/03/2018")),
+   // var messagesFromServer: [ChatMessage] = []
+                
+    var messagesFromServer = [
+            ChatMessage(text: "Here's my very first message", isIncoming: true, date: Date.dateFromCustomString(customString: "08/03/2018")),
                 ChatMessage(text: "I'm going to message another long message that will word wrap", isIncoming: true, date: Date.dateFromCustomString(customString: "08/03/2018")),
                 ChatMessage(text: "I'm going to message another long message that will word wrap, I'm going to message another long message that will word wrap, I'm going to message another long message that will word wrap", isIncoming: false, date: Date.dateFromCustomString(customString: "09/15/2018")),
                 ChatMessage(text: "Yo, dawg, Whaddup!", isIncoming: false, date: Date()),
@@ -67,7 +69,7 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
                     return element.date.reduceToMonthDayYear()
                 }
                 
-                // provide a sorting for your keys somehow
+                // provide a sorting for my keys somehow
                 let sortedKeys = groupedMessages.keys.sorted()
                 sortedKeys.forEach { (key) in
                     let values = groupedMessages[key]
@@ -76,10 +78,14 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
                 
             }
             
-            var chatMessages = [[ChatMessage]]()
+    var chatMessages = [[ChatMessage]]()
     var keyboardHeight = 0
     var textView : UITextView!
+    var sendBTN : UIButton!
 
+    
+    
+    
     
             override func viewDidLoad() {
                 super.viewDidLoad()
@@ -88,7 +94,15 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
                 
                 navigationItem.title = "Messages"
                 navigationController?.navigationBar.prefersLargeTitles = true
-                textView = UITextView ( frame: CGRect(x: 0, y: view.frame.height - 35, width: view.frame.width - 50, height: 35))
+               
+
+                let button = UIButton(frame: CGRect(x: view.frame.width - 75, y: view.frame.height - 35, width: 75, height: 35))
+                button.setTitle("Next", for: UIControl.State.normal)
+                button.addTarget(self, action: #selector(buttonTapAction), for: UIControl.Event.touchUpInside)
+                button.backgroundColor = UIColor.green
+                self.view.addSubview(button)
+                
+                textView = UITextView ( frame: CGRect(x: 0, y: view.frame.height - 35, width: view.frame.width - 75, height: 35))
                 tableView.translatesAutoresizingMaskIntoConstraints = false
                 tableView.register(MessageTableViewCell.self, forCellReuseIdentifier: cellId)
                 tableView.separatorStyle = .none
@@ -147,17 +161,27 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
                 self.view.addSubview ( textView )
               
                 
-                    
-                
-                
-                  // set delegate and datasource
-                  tableView.delegate = self
-                  tableView.dataSource = self
+               
+                // set delegate and datasource
+                tableView.delegate = self
+                tableView.dataSource = self
                 textView.delegate = self
+                self.view.addSubview(button)
                 
 
             }
-    
+    @objc func buttonTapAction(sender: UIButton!) {
+        print("Button tapped")
+        
+        let chat = ChatMessage(text: textView.text, isIncoming: false, date: Date())
+                               
+        self.chatMessages.removeAll()
+        self.messagesFromServer.append(chat)
+        attemptToAssembleGroupedMessages()
+        self.tableView.reloadData()
+            
+        textViewShouldReturn(textView)
+    }
   
 
     override func viewWillAppear(_ animated: Bool) {
@@ -180,15 +204,13 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             print("keyboardHeight : \(keyboardHeight)")
-           
-            
-            
-            
-            
+        
             
             }
     }
 
+
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         moveTextView(textView, moveDistance: -keyboardHeight, up: true)
@@ -201,10 +223,6 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
         
     }
 
-    
-    
-
-   
        // Hide the keyboard when the return key pressed
        func textViewShouldReturn(_ textView: UITextView) -> Bool {
            textView.resignFirstResponder()
@@ -225,7 +243,6 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
          
        }
      
-      
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -266,7 +283,7 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
              func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
                 if let firstMessageInSection = chatMessages[section].first {
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    dateFormatter.dateFormat = "dd/MM/yyyy"
                     let dateString = dateFormatter.string(from: firstMessageInSection.date)
                     
                     let label = DateHeaderLabel()
@@ -291,7 +308,7 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
             
              func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MessageTableViewCell
-        //        let chatMessage = chatMessages[indexPath.row]
+                //let chatMessage = chatMessages[indexPath.row]
                 let chatMessage = chatMessages[indexPath.section][indexPath.row]
                 cell.chatMessage = chatMessage
                 return cell
