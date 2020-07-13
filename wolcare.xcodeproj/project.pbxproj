@@ -11,6 +11,10 @@
 		0C006DB024A794860086D249 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C006DAE24A794860086D249 /* MessageViewController.xib */; };
 		0C006DB324A7CB420086D249 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C006DB124A7CB420086D249 /* MessageCollectionViewCell.swift */; };
 		0C006DB424A7CB420086D249 /* MessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */; };
+		0C1A7D8224B3749D0017D3A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A7D8124B3749D0017D3A0 /* Message.swift */; };
+		0C1A7D8424B3766E0017D3A0 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A7D8324B3766E0017D3A0 /* MessageFactory.swift */; };
+		0C1A7D8624B464280017D3A0 /* MessageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A7D8524B464280017D3A0 /* MessageServices.swift */; };
+		0C1A7D8824B6FC120017D3A0 /* MSGmodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A7D8724B6FC120017D3A0 /* MSGmodle.swift */; };
 		0C40C6772485CF90002DDA5A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40C6762485CF90002DDA5A /* Request.swift */; };
 		0C40C6792485D1CC002DDA5A /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40C6782485D1CC002DDA5A /* RequestFactory.swift */; };
 		0C40C67B2485D516002DDA5A /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40C67A2485D516002DDA5A /* RequestService.swift */; };
@@ -32,6 +36,9 @@
 		0C7C457A2464802800A9CA3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C45792464802800A9CA3F /* User.swift */; };
 		0C7C457D2464811600A9CA3F /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C457C2464811600A9CA3F /* LoginService.swift */; };
 		0C7C457F2464815A00A9CA3F /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C457E2464815A00A9CA3F /* LoginFactory.swift */; };
+		0CC5C67924BB438400D93415 /* connectedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5C67824BB438400D93415 /* connectedUser.swift */; };
+		0CC5C67C24BB5BE700D93415 /* WorkshopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5C67A24BB5BE700D93415 /* WorkshopDetailViewController.swift */; };
+		0CC5C67D24BB5BE700D93415 /* WorkshopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC5C67B24BB5BE700D93415 /* WorkshopDetailViewController.xib */; };
 		0CE7EBD72486802100A6D36B /* RequestsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EBD52486802100A6D36B /* RequestsCollectionViewController.swift */; };
 		0CE7EBD82486802100A6D36B /* RequestsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7EBD62486802100A6D36B /* RequestsCollectionViewController.xib */; };
 		0CE7EBDB248692D500A6D36B /* RequestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EBD9248692D400A6D36B /* RequestCollectionViewCell.swift */; };
@@ -62,6 +69,10 @@
 		0C006DAE24A794860086D249 /* MessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
 		0C006DB124A7CB420086D249 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C006DB224A7CB420086D249 /* MessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCollectionViewCell.xib; sourceTree = "<group>"; };
+		0C1A7D8124B3749D0017D3A0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		0C1A7D8324B3766E0017D3A0 /* MessageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
+		0C1A7D8524B464280017D3A0 /* MessageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageServices.swift; sourceTree = "<group>"; };
+		0C1A7D8724B6FC120017D3A0 /* MSGmodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSGmodle.swift; sourceTree = "<group>"; };
 		0C40C6762485CF90002DDA5A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0C40C6782485D1CC002DDA5A /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		0C40C67A2485D516002DDA5A /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
@@ -85,6 +96,9 @@
 		0C7C45792464802800A9CA3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0C7C457C2464811600A9CA3F /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0C7C457E2464815A00A9CA3F /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		0CC5C67824BB438400D93415 /* connectedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectedUser.swift; sourceTree = "<group>"; };
+		0CC5C67A24BB5BE700D93415 /* WorkshopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopDetailViewController.swift; sourceTree = "<group>"; };
+		0CC5C67B24BB5BE700D93415 /* WorkshopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkshopDetailViewController.xib; sourceTree = "<group>"; };
 		0CE7EBD52486802100A6D36B /* RequestsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsCollectionViewController.swift; sourceTree = "<group>"; };
 		0CE7EBD62486802100A6D36B /* RequestsCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestsCollectionViewController.xib; sourceTree = "<group>"; };
 		0CE7EBD9248692D400A6D36B /* RequestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -202,6 +216,8 @@
 				0C7C45792464802800A9CA3F /* User.swift */,
 				952EC0F32468288800F83396 /* WorkShop.swift */,
 				0C40C6762485CF90002DDA5A /* Request.swift */,
+				0C1A7D8124B3749D0017D3A0 /* Message.swift */,
+				0C1A7D8724B6FC120017D3A0 /* MSGmodle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +233,8 @@
 				952EC0FC246ACCC700F83396 /* WorkShopFactory.swift */,
 				0C40C6782485D1CC002DDA5A /* RequestFactory.swift */,
 				0C40C67A2485D516002DDA5A /* RequestService.swift */,
+				0C1A7D8324B3766E0017D3A0 /* MessageFactory.swift */,
+				0C1A7D8524B464280017D3A0 /* MessageServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -252,12 +270,15 @@
 		952EC0F5246A9ECF00F83396 /* workShop */ = {
 			isa = PBXGroup;
 			children = (
+				0CC5C67A24BB5BE700D93415 /* WorkshopDetailViewController.swift */,
+				0CC5C67B24BB5BE700D93415 /* WorkshopDetailViewController.xib */,
 				952EC0F6246AA10200F83396 /* createWorkShopViewController.swift */,
 				952EC0F7246AA10200F83396 /* createWorkShopViewController.xib */,
 				0C446DD92492362200E18560 /* WorkshopCollectionViewController.swift */,
 				0C446DDA2492362200E18560 /* WorkshopCollectionViewController.xib */,
 				0C446DE52492403F00E18560 /* WorkshopCollectionViewCell.swift */,
 				0C446DE62492403F00E18560 /* WorkshopCollectionViewCell.xib */,
+				0CC5C67824BB438400D93415 /* connectedUser.swift */,
 			);
 			path = workShop;
 			sourceTree = "<group>";
@@ -322,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC5C67D24BB5BE700D93415 /* WorkshopDetailViewController.xib in Resources */,
 				952EC0F9246AA10200F83396 /* createWorkShopViewController.xib in Resources */,
 				0C446DDC2492362200E18560 /* WorkshopCollectionViewController.xib in Resources */,
 				952EC0EE2466F3FB00F83396 /* SignInViewController.xib in Resources */,
@@ -394,13 +416,16 @@
 				9B9198D124AA340800ED85C9 /* MessageTableViewCell.swift in Sources */,
 				0CE7EBE62486FDC800A6D36B /* UIViewExtension.swift in Sources */,
 				0CE7EBD72486802100A6D36B /* RequestsCollectionViewController.swift in Sources */,
+				0CC5C67924BB438400D93415 /* connectedUser.swift in Sources */,
 				0C40C6772485CF90002DDA5A /* Request.swift in Sources */,
+				0C1A7D8224B3749D0017D3A0 /* Message.swift in Sources */,
 				0CE7EBDF2486D3BE00A6D36B /* RequestDetailViewController.swift in Sources */,
 				0C006DAF24A794860086D249 /* MessageViewController.swift in Sources */,
 				0C40C6792485D1CC002DDA5A /* RequestFactory.swift in Sources */,
 				0C006DB324A7CB420086D249 /* MessageCollectionViewCell.swift in Sources */,
 				0C7C4572246477AA00A9CA3F /* LoginViewController.swift in Sources */,
 				0CE7EBDB248692D500A6D36B /* RequestCollectionViewCell.swift in Sources */,
+				0C1A7D8824B6FC120017D3A0 /* MSGmodle.swift in Sources */,
 				952EC0F42468288800F83396 /* WorkShop.swift in Sources */,
 				0C446DE72492403F00E18560 /* WorkshopCollectionViewCell.swift in Sources */,
 				0C7C45612464779200A9CA3F /* ViewController.swift in Sources */,
@@ -414,10 +439,13 @@
 				952EC0FD246ACCC700F83396 /* WorkShopFactory.swift in Sources */,
 				9B9198CE24AA303400ED85C9 /* MessageTableViewController.swift in Sources */,
 				0C7C455D2464779200A9CA3F /* AppDelegate.swift in Sources */,
+				0CC5C67C24BB5BE700D93415 /* WorkshopDetailViewController.swift in Sources */,
 				952EC0ED2466F3FB00F83396 /* SignInViewController.swift in Sources */,
 				9B5AFB2F24ACB78300F6063E /* FoodViewController.swift in Sources */,
 				0CE7EBE72486FDC800A6D36B /* CommonAlertVC.swift in Sources */,
 				0C7C455F2464779200A9CA3F /* SceneDelegate.swift in Sources */,
+				0C1A7D8624B464280017D3A0 /* MessageServices.swift in Sources */,
+				0C1A7D8424B3766E0017D3A0 /* MessageFactory.swift in Sources */,
 				0C7C457F2464815A00A9CA3F /* LoginFactory.swift in Sources */,
 				952EC0F22468023800F83396 /* UserWebService.swift in Sources */,
 				0C7C457D2464811600A9CA3F /* LoginService.swift in Sources */,

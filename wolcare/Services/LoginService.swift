@@ -25,7 +25,16 @@ class LoginService {
                }
             
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                       print("data: \(dataString)")
+                print("data: \(dataString)")
+                let dict = dataString.toJSON() as? [String:AnyObject]
+               
+
+                let id = (dict?["idUser"] as AnyObject? as? String) ?? "test"
+                print(id)
+
+                        
+                
+                connecterUser.id = id
                     completion(true)
             } else {
 
@@ -39,3 +48,16 @@ class LoginService {
 
 }
  
+
+struct Userdata: Decodable {
+    let idUser: String
+    let auth: String
+    let platform: String?
+    let token: String?
+}
+extension String {
+    func toJSON() -> Any? {
+        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+        return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+    }
+}

@@ -193,9 +193,9 @@ class WorkshopCollectionViewController: UIViewController , UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("go to")
-       // let vc = RequestDetailViewController.newInstance(workshop: workshops[indexPath.row])
+        let vc = WorkshopDetailViewController.newInstance(workshop: workshops[indexPath.row])
        
-       // self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

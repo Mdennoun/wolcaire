@@ -8,49 +8,50 @@
 
 import UIKit
 
-class RequestDetailViewController: UIViewController {
+class WorkshopDetailViewController: UIViewController {
 
     @IBOutlet var creatorPseudo: UILabel!
     @IBOutlet var creationDate: UILabel!
     @IBOutlet var requestDescription: UILabel!
     @IBOutlet var picture: UIImageView!
     @IBOutlet var Gotomessage: UIButton!
-    var currentRequest: Request!
-    let requestServices: RequestService = RequestService()
+    var currentWorshop: WorkShop!
+    let workshopServices: WorkShopService = WorkShopService()
     
     
-    class func newInstance(request: Request) -> RequestDetailViewController {
+    class func newInstance(workshop: WorkShop) -> WorkshopDetailViewController {
         
-        let requestlvc = RequestDetailViewController()
-        requestlvc.currentRequest = request
-        requestlvc.navigationItem.title = request.title!
+        let vc = WorkshopDetailViewController()
+        vc.currentWorshop = workshop
+        vc.navigationItem.title = workshop.title!
             
         
         
-        if let imageURL = URL(string: request.photoPath!) {
+        if let imageURL = URL(string: workshop.photoPath!) {
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imageURL)
                 if let data = data {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
-                        requestlvc.picture?.image = image
-                        requestlvc.creatorPseudo?.text = request.psuedoUser!
-                        requestlvc.creationDate?.text = request.createAt!
-                        requestlvc.requestDescription?.text = request.Requestdescription!
+                        vc.picture?.image = image
+                        vc.creatorPseudo?.text = workshop
+                            .idCreator!
+                        vc.creationDate?.text = workshop.createAt!
+                        vc.requestDescription?.text = workshop.WorkshopDescription!
                     }
                 }
                 DispatchQueue.main.async {
-                    if (requestlvc.picture.image == nil){
+                    if (vc.picture.image == nil){
                         
-                        requestlvc.picture?.image = UIImage(named: "workshop")
-                        requestlvc.creatorPseudo?.text = request.psuedoUser!
-                        requestlvc.creationDate?.text = request.createAt!
-                        requestlvc.requestDescription?.text = request.Requestdescription!
+                        vc.picture?.image = UIImage(named: "workshop")
+                        vc.creatorPseudo?.text = workshop.idCreator!
+                        vc.creationDate?.text = workshop.createAt!
+                        vc.requestDescription?.text = workshop.WorkshopDescription!
                     }
                 }
             }
         }
-        return requestlvc
+        return vc
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -64,7 +65,7 @@ class RequestDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func Gotomessage(_ sender: Any) {
-        let msgController = MessageTableViewController.newInstance(request: currentRequest, workshop: nil)
+        let msgController =  MessageTableViewController.newInstance(request: nil, workshop: currentWorshop)
         self.navigationController?.pushViewController(msgController, animated: true)
         
         
@@ -72,7 +73,7 @@ class RequestDetailViewController: UIViewController {
     }
     @objc func deleteTapped() {
     
-        let actionYes : [String: () -> Void] = [ "OUI" : { (
+       /* let actionYes : [String: () -> Void] = [ "OUI" : { (
             print("tapped YES")
             
             
@@ -104,7 +105,7 @@ class RequestDetailViewController: UIViewController {
         
         
         
-        
+        */
           
          
       }

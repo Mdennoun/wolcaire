@@ -39,7 +39,7 @@ class WorkShop: CustomStringConvertible {
         self.dateAvailable = dateAvailable
         self.createAt = createAt
         self.photoPath = photoPath
-        self.WorkshopDescription = description
+        self.WorkshopDescription = WorkshopDescription
     
         
         

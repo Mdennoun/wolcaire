@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
-struct ChatMessage {
+
+
+struct ChatMessage: Equatable {
     let text: String
     let isIncoming: Bool
     let date: Date
@@ -31,12 +34,27 @@ extension Date {
         return dateFormatter.date(from: "\(month)/\(day)/\(year)") ?? Date()
     }
 }
+
 class MessageTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
   
- 
 
-
+    let messageServices: MessageServices = MessageServices()
+    
    
+     
+    var request = Request(idCategory: nil, idUser: nil, psuedoUser: nil, idVolunteer: nil, photoPath: nil, title: nil, Requestdescription: nil, status: nil, createAt: nil)
+    var workshop = WorkShop(idCategory: nil, idCreator: nil, idIntervenant: nil, title: nil, maxPeoplesAllowed: nil, status: nil, dateAvailable: nil, createAt: nil, datEnd: nil, photoPath: nil, WorkshopDescription: nil)
+    class func newInstance(request: Request?,workshop: WorkShop?) -> MessageTableViewController {
+             
+            let vc = MessageTableViewController()
+            if(request != nil){
+                vc.request = request!
+            }
+            if(workshop != nil){
+                vc.workshop = workshop!
+            }
+             return vc
+         }
     
         let tableView : UITableView = {
              let t = UITableView()
@@ -54,13 +72,8 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
    // var messagesFromServer: [ChatMessage] = []
                 
     var messagesFromServer = [
-            ChatMessage(text: "Here's my very first message", isIncoming: true, date: Date.dateFromCustomString(customString: "08/03/2018")),
-                ChatMessage(text: "I'm going to message another long message that will word wrap", isIncoming: true, date: Date.dateFromCustomString(customString: "08/03/2018")),
-                ChatMessage(text: "I'm going to message another long message that will word wrap, I'm going to message another long message that will word wrap, I'm going to message another long message that will word wrap", isIncoming: false, date: Date.dateFromCustomString(customString: "09/15/2018")),
-                ChatMessage(text: "Yo, dawg, Whaddup!", isIncoming: false, date: Date()),
-                ChatMessage(text: "This message should appear on the left with a white background bubble", isIncoming: true, date: Date.dateFromCustomString(customString: "09/15/2018")),
-                ChatMessage(text: "Third Section message", isIncoming: true, date: Date.dateFromCustomString(customString: "10/31/2018"))
-            ]
+            ChatMessage(text: "Here's my very first message", isIncoming: true, date: Date.dateFromCustomString(customString: "08/03/2018"))
+    ]
             
             fileprivate func attemptToAssembleGroupedMessages() {
                 print("Attempt to group our messages together based on Date property")
@@ -85,11 +98,19 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
 
     
     
-    
+    var gameTimer: Timer?
     
             override func viewDidLoad() {
                 super.viewDidLoad()
-                
+              //  self.tabBarController?.tabBar.layer.zPosition = -1
+                print("cheer")
+                print(connecterUser.id)
+                self.tabBarController?.tabBar.isHidden = true
+               
+                setupMSG()
+                     
+              gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(setupMSG), userInfo: nil, repeats: true)
+             
                 attemptToAssembleGroupedMessages()
                 
                 navigationItem.title = "Messages"
@@ -168,6 +189,7 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
                 textView.delegate = self
                 self.view.addSubview(button)
                 
+                
 
             }
     @objc func buttonTapAction(sender: UIButton!) {
@@ -175,16 +197,80 @@ class MessageTableViewController: UIViewController, UITableViewDelegate, UITable
         
         let chat = ChatMessage(text: textView.text, isIncoming: false, date: Date())
                                
-        self.chatMessages.removeAll()
-        self.messagesFromServer.append(chat)
-        attemptToAssembleGroupedMessages()
+        let message = Message(idRequest: request._id!, idSender: connecterUser.id, idReceiver: request.idUser!, date: nil, message: textView.text!)
+        messageServices.saveMsg(message: message) { (isSave) in
+            print(isSave.description)
+        }
+        
+        setupMSG()
+        
+        
         self.tableView.reloadData()
-            
+        textView.text = ""
         textViewShouldReturn(textView)
     }
   
+    @objc func setupMSG()
+          {
+            var reqOrworkID = ""
+            if(request._id != nil) {
+                reqOrworkID = request._id!
+            } else if (workshop._id != nil) {
+                reqOrworkID = workshop._id!
+            }
+            self.messageServices.getMessageByIDS(idRequest: reqOrworkID, idSender: connecterUser.id, idReceiver: self.request.idUser!) { (messages) in
+                         var msgs: [ChatMessage] = []
 
-    override func viewWillAppear(_ animated: Bool) {
+                         self.chatMessages.removeAll()
+                                       for message in messages {
+                                           let isoDate = message.date
+
+                                           let dateFormatter = DateFormatter()
+                                           dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                                           dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                           let date = dateFormatter.date(from:message.date!)!
+                                           
+                                           var chatMsg = ChatMessage(text: message.message!, isIncoming: message.idReceiver == connecterUser.id, date: date)
+                                           msgs.append(chatMsg)
+                                        if(!self.messagesFromServer.contains(chatMsg)) {
+                                            
+                                            self.messagesFromServer.append(chatMsg)
+                                        }
+                                        
+                                        
+                                       }
+                         self.messageServices.getMessageByIDS(idRequest: reqOrworkID, idSender: self.request.idUser! , idReceiver: connecterUser.id) { (messages) in
+                         var msgs: [ChatMessage] = []
+
+                         self.chatMessages.removeAll()
+                                       for message in messages {
+                                           let isoDate = message.date
+
+                                           let dateFormatter = DateFormatter()
+                                           dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                                           dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                           let date = dateFormatter.date(from:message.date!)!
+                                           
+                                           var chatMsg = ChatMessage(text: message.message!, isIncoming: message.idReceiver == connecterUser.id, date: date)
+                                           msgs.append(chatMsg)
+                                        if (!self.messagesFromServer.contains(chatMsg)){
+
+                                            self.messagesFromServer.append(chatMsg)
+                                        }
+                                       }
+                         }
+                         self.attemptToAssembleGroupedMessages()
+                         self.tableView.reloadData()
+                                       print(messages)
+          }
+            
+        func viewWillAppear(_ animated: Bool) {
+            
+            
+            setupMSG()
+      
+      }
+                      
         NotificationCenter.default.addObserver(self,
         selector: #selector(keyboardWillShow),
         name: UIResponder.keyboardWillShowNotification, object: nil)
