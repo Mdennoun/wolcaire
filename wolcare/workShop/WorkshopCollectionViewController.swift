@@ -180,7 +180,7 @@ class WorkshopCollectionViewController: UIViewController , UICollectionViewDeleg
     @objc func addTapped() {
         
         print("add")
-        let vc = createWorkShopViewController()
+        let vc = WorkshopCreateViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

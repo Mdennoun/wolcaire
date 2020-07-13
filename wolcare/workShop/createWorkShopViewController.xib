@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,10 +20,11 @@
                 <outlet property="hourEndTxt" destination="hVp-Yi-mcH" id="9Bp-8t-MIr"/>
                 <outlet property="houtBeginEdt" destination="kvr-UT-HNo" id="1u2-QB-TZt"/>
                 <outlet property="libraryButton" destination="qWF-HD-dQr" id="uIL-ur-adD"/>
+                <outlet property="spiner" destination="heq-R7-ed2" id="p5n-Ej-dua"/>
                 <outlet property="titleEdt" destination="0aR-9K-Pbz" id="fYg-A1-bgL"/>
                 <outlet property="titleTxt" destination="2QN-c9-gHA" id="OOe-xZ-Wq8"/>
                 <outlet property="view" destination="eZp-Ki-Nrf" id="EJc-cI-NDD"/>
-                <outlet property="workShopImg" destination="6FD-Q0-19z" id="c5Y-J0-tAl"/>
+                <outlet property="workShopImg" destination="6FD-Q0-19z" id="6vs-ID-x92"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,7 +32,7 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="heq-R7-ed2">
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="heq-R7-ed2">
                     <rect key="frame" x="359" y="487" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="5NF-2f-cDG"/>
@@ -39,7 +40,7 @@
                     </constraints>
                     <color key="color" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-Q0-19z">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-Q0-19z" userLabel="WorkShopImg">
                     <rect key="frame" x="20" y="557" width="300" height="250"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="IQD-aj-HTv"/>
@@ -152,6 +153,7 @@
                 <constraint firstItem="heq-R7-ed2" firstAttribute="centerX" secondItem="eZp-Ki-Nrf" secondAttribute="centerX" id="8sp-bq-QOk"/>
                 <constraint firstItem="0aR-9K-Pbz" firstAttribute="leading" secondItem="2QN-c9-gHA" secondAttribute="trailing" constant="175" id="AnQ-Dh-d0C"/>
                 <constraint firstItem="hVp-Yi-mcH" firstAttribute="top" secondItem="Yg9-Ko-vAq" secondAttribute="bottom" constant="30" id="B3l-52-Y2x"/>
+                <constraint firstItem="yaC-UJ-259" firstAttribute="trailing" secondItem="qWF-HD-dQr" secondAttribute="trailing" constant="244" id="Did-Yl-o3s"/>
                 <constraint firstItem="yaC-UJ-259" firstAttribute="trailing" secondItem="NW5-o2-xh7" secondAttribute="trailing" constant="200" id="Dwp-qP-WWi"/>
                 <constraint firstItem="NW5-o2-xh7" firstAttribute="leading" secondItem="ar5-O6-ID5" secondAttribute="trailing" constant="100" id="F8T-Hb-oFi"/>
                 <constraint firstItem="2QN-c9-gHA" firstAttribute="top" secondItem="yaC-UJ-259" secondAttribute="top" constant="20" id="FbD-Vi-sco"/>
@@ -166,22 +168,18 @@
                 <constraint firstItem="yaC-UJ-259" firstAttribute="trailing" secondItem="4Bm-pu-xcj" secondAttribute="trailing" constant="200" id="Ths-Eg-KTB"/>
                 <constraint firstItem="kvr-UT-HNo" firstAttribute="top" secondItem="NW5-o2-xh7" secondAttribute="bottom" constant="45" id="UYl-Bl-J2o"/>
                 <constraint firstItem="yaC-UJ-259" firstAttribute="trailing" secondItem="0aR-9K-Pbz" secondAttribute="trailing" constant="200" id="VUG-oh-0NW"/>
-                <constraint firstItem="5d3-QV-top" firstAttribute="leading" secondItem="6FD-Q0-19z" secondAttribute="trailing" constant="50" id="Xjr-mI-6kh"/>
                 <constraint firstItem="NW5-o2-xh7" firstAttribute="top" secondItem="JSb-Nl-OGX" secondAttribute="bottom" constant="20" id="YRV-Rd-uK2"/>
+                <constraint firstItem="yaC-UJ-259" firstAttribute="trailing" secondItem="5d3-QV-top" secondAttribute="trailing" constant="224" id="cxM-y2-UmO"/>
                 <constraint firstItem="ar5-O6-ID5" firstAttribute="top" secondItem="JSb-Nl-OGX" secondAttribute="bottom" constant="25" id="ebg-eV-PTW"/>
                 <constraint firstItem="ar5-O6-ID5" firstAttribute="leading" secondItem="yaC-UJ-259" secondAttribute="leading" constant="75" id="iP3-X6-GzM"/>
                 <constraint firstItem="U5Q-bo-PYm" firstAttribute="top" secondItem="4Bm-pu-xcj" secondAttribute="bottom" constant="20" id="j6Y-Dq-GbU"/>
                 <constraint firstItem="2QN-c9-gHA" firstAttribute="leading" secondItem="yaC-UJ-259" secondAttribute="leading" constant="75" id="kNC-rx-WrB"/>
                 <constraint firstItem="4Bm-pu-xcj" firstAttribute="leading" secondItem="hVp-Yi-mcH" secondAttribute="trailing" constant="126" id="kg0-jO-acS"/>
                 <constraint firstItem="5d3-QV-top" firstAttribute="top" secondItem="U5Q-bo-PYm" secondAttribute="bottom" constant="100" id="lTv-t8-2I6"/>
-                <constraint firstItem="qWF-HD-dQr" firstAttribute="leading" secondItem="6FD-Q0-19z" secondAttribute="trailing" constant="71" id="p9o-ng-BXX"/>
                 <constraint firstItem="CJA-MA-Tvp" firstAttribute="leading" secondItem="yaC-UJ-259" secondAttribute="leading" constant="75" id="tkb-k7-WJB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="yaC-UJ-259"/>
             <point key="canvasLocation" x="138.28125" y="108.3984375"/>
         </view>
     </objects>
-    <resources>
-        <image name="photo-camera" width="1200" height="1200"/>
-    </resources>
 </document>

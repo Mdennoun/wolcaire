@@ -11,7 +11,7 @@ import UIKit
 class createWorkShopViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
 
-    @IBOutlet var workShopImg: UIImageView!
+    @IBOutlet weak var workShopImg: UIImageView!
     @IBOutlet var titleTxt: UILabel!
     @IBOutlet var titleEdt: UITextField!
     @IBOutlet var dateBeginTxt: UILabel!
@@ -25,6 +25,7 @@ class createWorkShopViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet var categoryPicker: UIPickerView!
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var libraryButton: UIButton!
+    @IBOutlet weak var spiner: UIActivityIndicatorView!
     
     private var dateBeginPicker: UIDatePicker?
     private var hourBeginPicker: UIDatePicker?
@@ -40,7 +41,7 @@ let workShopService: WorkShopService = WorkShopService()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        spiner.isHidden = true
         
         categoryData = ["Jardinage", "Bricolage", "Social", "Transport", "Achats", "Autre"]
         self.categoryPicker.delegate = self
@@ -53,7 +54,9 @@ let workShopService: WorkShopService = WorkShopService()
  
        // self.view.addSubview(workShopImg!)
         
-        //self.workShopImg.image = image
+        self.workShopImg.image = image
+        self.workShopImg.setNeedsDisplay()
+        self.workShopImg.translatesAutoresizingMaskIntoConstraints = false
         navigationItem.title = "Nouvel Atelier"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWorkShop))
         
@@ -155,7 +158,7 @@ let workShopService: WorkShopService = WorkShopService()
                 return
         }
 
-        let workShop = WorkShop(_id: nil, idCategory: nil, idCreator: nil, idIntervenant: nil, title: title, maxPeoplesAllowed: 10, status: 0, dateAvailable: begin.debugDescription, createAt: nil, datEnd: end.debugDescription, photoPath: "photoPath", WorkshopDescription: "test des")
+        let workShop = WorkShop(id: nil, idCategory: nil, idCreator: nil, idIntervenant: nil, title: title, maxPeoplesAllowed: 4, status: 0, dateAvailable: begin.debugDescription, createAt: nil, datEnd: end.debugDescription, photoPath: "photoPath", WorkshopDescription: "test des")
             
 
         self.workShopService.neWorkShop(workShop: workShop) { (success) in
@@ -194,6 +197,7 @@ extension createWorkShopViewController: UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
         dismiss(animated: true, completion: nil)
     }
     func randomString(length: Int) -> String {

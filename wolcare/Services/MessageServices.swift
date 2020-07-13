@@ -70,7 +70,7 @@ class MessageServices {
     }
     func getMessageByIDS(idRequest: String, idSender: String, idReceiver: String,completion: @escaping MessageCompletion) -> Void {
     
-        let url = "http://localhost:6000/api/getMessageByIDS"
+        let url = "https://wolcare.herokuapp.com/api/getMessageByIDS"
        
         let parameter: [String: String] = [
             "idRequest" : idRequest,

@@ -30,23 +30,23 @@ class WorkShopService {
             print("help")
             print(json)
             
-            let request =  json.compactMap { (obj) -> WorkShop? in
+            let workshop =  json.compactMap { (obj) -> WorkShop? in
                 guard let workshop = obj as? [String: Any] else {
                     return nil
                 }
                 return WorkShopFactory.workShopFrom(workShop: workshop)
             }
             DispatchQueue.main.sync {
-                completion(request)
+                completion(workshop)
             }
-            print(request)
+            print(workshop)
         }
         task.resume()
         
     }
     
     func neWorkShop(workShop: WorkShop, completion: @escaping (Bool) -> Void) -> Void {
-        guard let workShopURL = URL(string: "https://wolcare.herokuapp.com/api/newWorkShop") else {
+        guard let workShopURL = URL(string: "http://localhost:7000/api/newWorkShop") else {
             return 
         }
         var request = URLRequest(url: workShopURL)

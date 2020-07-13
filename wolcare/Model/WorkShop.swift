@@ -11,7 +11,7 @@ import Foundation
 class WorkShop: CustomStringConvertible {
     
     
-    var _id: String?
+    var id: String?
     var idCategory: String?
     var idCreator: String?
     var idIntervenant: String?
@@ -39,6 +39,7 @@ class WorkShop: CustomStringConvertible {
         self.dateAvailable = dateAvailable
         self.createAt = createAt
         self.photoPath = photoPath
+        self.datEnd = datEnd
         self.WorkshopDescription = WorkshopDescription
     
         
@@ -47,10 +48,10 @@ class WorkShop: CustomStringConvertible {
     } 
     
     
-    convenience init (_id: String?, idCategory: String?, idCreator: String?, idIntervenant: String?, title : String?, maxPeoplesAllowed: Int?, status: Int?, dateAvailable: String?, createAt: String? , datEnd: String?, photoPath: String?, WorkshopDescription: String?) {
+    convenience init (id: String?, idCategory: String?, idCreator: String?, idIntervenant: String?, title : String?, maxPeoplesAllowed: Int?, status: Int?, dateAvailable: String?, createAt: String? , datEnd: String?, photoPath: String?, WorkshopDescription: String?) {
         self.init(idCategory: idCategory, idCreator: idCategory, idIntervenant: idCategory, title : title, maxPeoplesAllowed: maxPeoplesAllowed, status: status, dateAvailable: dateAvailable, createAt: createAt, datEnd: datEnd, photoPath: photoPath, WorkshopDescription: WorkshopDescription)
         
-         self._id = _id
+         self.id = id
          self.idCategory = idCategory
          self.idCreator = idCreator
          self.idIntervenant = idIntervenant
@@ -67,6 +68,6 @@ class WorkShop: CustomStringConvertible {
      }
     
     var description: String {
-    return "{ _id: \(self._id ), idCategory: \(self.idCategory ), idCreator: \(self.idCreator ), idIntervenant: \(self.idIntervenant ), title: \(self.title ), maxPeoplesAllowed: \(self.maxPeoplesAllowed ), status: \(self.status ), dateAvailable: \(self.dateAvailable ), createAt: \(self.createAt ), photoPath: \(self.photoPath), description: \(self.WorkshopDescription ) }"
+    return "{ _id: \(self.id ), idCategory: \(self.idCategory ), idCreator: \(self.idCreator ), idIntervenant: \(self.idIntervenant ), title: \(self.title ), maxPeoplesAllowed: \(self.maxPeoplesAllowed ), status: \(self.status ), dateAvailable: \(self.dateAvailable ), createAt: \(self.createAt ), photoPath: \(self.photoPath), description: \(self.WorkshopDescription ) }"
     }
 }
