@@ -22,7 +22,7 @@ class WorkShopFactory {
             let createAt = workShop["createAt"] as? String,
             let datEnd = workShop["datEnd"] as? String,
             let status = workShop["status"] as? Int,
-            let maxPeoplesAllowed = workShop["maxPeoplesAllowed"] as? IntegerLiteralType
+            let maxPeoplesAllowed = workShop["maxPeoplesAllowed"] as? Int
         else {
                 return nil
         }

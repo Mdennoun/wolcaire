@@ -22,6 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.mail.tag = 1
         self.password.delegate = self
         self.password.tag = 2
+        self.definesPresentationContext = true
 
     }
 
