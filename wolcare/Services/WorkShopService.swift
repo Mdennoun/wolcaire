@@ -159,6 +159,34 @@ class WorkShopService {
         
         
     }
+    func updateWorkshop(workshop: WorkShop, completion: @escaping (Bool) -> Void) -> Void {
+        guard let scooterURL = URL(string: "https://wolcare.herokuapp.com/api/updateWorkShop/\(workshop.id)") else {
+                   return
+               }
+               var request = URLRequest(url: scooterURL)
+               request.httpMethod = "PUT"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: WorkShopFactory.dictionaryFrom(workShop: workshop), options: .fragmentsAllowed)
+               request.setValue("application/json", forHTTPHeaderField: "content-type")
+               let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, res, err) in
+                   if let httpRes = res as? HTTPURLResponse {
+                    
+                    completion(httpRes.statusCode == 200)
+                   }
+                
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    
+                        completion(true)
+                } else {
+
+                    completion(false)
+                }
+                
+               })
+            
+               task.resume()
+           
+
+    }
     
     
     func modiUserTEST(id: String) -> Void {

@@ -14,7 +14,7 @@ class UserWebService {
     
     
     func newUser(user: User, completion: @escaping (Bool) -> Void) -> Void {
-        guard let usertURL = URL(string: "https://wolcare.herokuapp.com/api/newUser") else {
+        guard let usertURL = URL(string: "http://localhost:7000/api/newUser") else {
             return
         }
         var request = URLRequest(url: usertURL)
@@ -81,7 +81,7 @@ class UserWebService {
         task.resume()
         
         let date = Date()
-        let arr = [User(_id: "_id", email: "email", password: "password", type:"type", pseudo : "pseudo", firstname: "firstname", lastname: "lastname", birthdate: date.debugDescription, sex: true, photo: "photo", requestIssued: 1, requestFulfilled: 1 )]
+        let arr = [User(_id: "_id", email: "email", password: "password", type:"type", pseudo : "pseudo", firstname: "firstname", lastname: "lastname", birthdate: date.debugDescription, sex: true, photo: "photo", requestIssued: 0, requestFulfilled: 0 )]
         completion(arr)
     }
     

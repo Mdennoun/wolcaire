@@ -95,12 +95,17 @@ class WorkshopCreateViewController: UIViewController {
         spener.startAnimating()
        
         let dateFormatter = DateFormatter()
+        
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "fr_FR")
         let dateBegin = "\(dateBeginEdt.text!) \(houtBeginEdt.text!)"
         let datEnding =  "\(dateBeginEdt.text!) \(hourEndEdt.text!)"
+        let dateStart = dateFormatter.date(from:dateBegin)!
+        let dateEnd = dateFormatter.date(from:datEnding)!
         let date = Date()
+        print(dateBegin)
         
-        var workshop = WorkShop(idCategory: "5e48048059ac860004ce7dfe", idCreator: connecterUser.id, idIntervenant: "5e48048059ac860004ce7dfe", title: titleRequest.text, maxPeoplesAllowed: Int(maxPeople.text ?? "3"), status: 0, dateAvailable: dateBegin, createAt: date.description, datEnd: datEnding, photoPath: "photoPath", WorkshopDescription: requestDescription.text)
+        var workshop = WorkShop(idCategory: categorie.id, idCreator: connecterUser.id, idIntervenant: connecterUser.id, title: titleRequest.text, maxPeoplesAllowed: Int(maxPeople.text ?? "3"), status: 0, dateAvailable: dateStart.description, createAt: date.description, datEnd: dateEnd.description, photoPath: "photoPath", WorkshopDescription: requestDescription.text)
         
         print(mainImageView.image?.pngData())
         Post(image : mainImageView.image, workshop: workshop)
@@ -160,7 +165,74 @@ extension WorkshopCreateViewController: UIImagePickerControllerDelegate, UINavig
     func Post(image : UIImage?, workshop: WorkShop){
         print(workshop)
         let parameters = WorkShopFactory.dictionaryFrom(workShop: workshop)
+        print("Json param")
+        print(parameters)
+        let headers: HTTPHeaders = [
+            /* "Authorization": "your_access_token",  in case you need authorization header */
+            "Content-type": "application/json"
+        ]
+        
+        
 
+
+            AF.upload(
+                multipartFormData: { multipartFormData in
+                    multipartFormData.append(image!.jpegData(compressionQuality: 0.3)!, withName: "photo" , fileName: "file.jpeg", mimeType: "image/jpeg")
+                    for (key, value) in parameters {
+                        if let temp = value as? String {
+                            multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+                        }
+                    }
+            },
+                to: "http://localhost:7000/api/addNewWorkshop", method: .post , headers: headers)
+                .response { resp in
+                    print("here")
+                    print(resp.debugDescription)
+                    print(resp.data)
+                    if let data = resp.data, let dataString = String(data: data, encoding: .utf8) {
+                                       
+                        print("data: \(dataString)")
+                        let dict = dataString.toJSON() as? [String:AnyObject]
+                        let id = (dict?["_id"] as AnyObject? as? String) ?? "test"
+                        workshop.id = id
+                        self.workshopServices.updateWorkshop(workshop: workshop, completion: {(bool) in
+                            print(bool)
+                            })
+                        print(id)
+                        
+                    }
+                                   
+                                  
+                    self.workshopServices.getWorkShop { (workshops) in
+
+                    self.mainImageView.isHidden = false
+                    self.requestDescription.isHidden = false
+                    self.titleRequest.isHidden = false
+                    self.cameraButton.isHidden = false
+                    self.libraryButton.isHidden = false
+                    self.dateBeginEdt.isHidden = false
+                    self.houtBeginEdt.isHidden = false
+                    self.hourEndEdt.isHidden = false
+                    self.categorieEdt.isHidden = false
+                    self.maxPeople.isHidden = false
+                        
+                    self.spener.isHidden = true
+                    self.spener.stopAnimating()
+                        let workshopController = WorkshopCollectionViewController.newInstance(workshops: workshops)
+                        
+                        self.navigationController?.pushViewController(workshopController, animated: true)
+                        
+                        print(resp)
+                        
+                    }
+
+            }
+    }
+    func Update(image : UIImage?, workshop: WorkShop){
+        print(workshop)
+        let parameters = WorkShopFactory.dictionaryFrom(workShop: workshop)
+        print("Json param")
+        print(parameters)
         let headers: HTTPHeaders = [
             /* "Authorization": "your_access_token",  in case you need authorization header */
             "Content-type": "application/json"

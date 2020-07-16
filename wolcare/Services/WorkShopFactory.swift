@@ -45,7 +45,6 @@ class WorkShopFactory {
             "dateAvailable": workShop.dateAvailable,
             "datEnd": workShop.datEnd,
             "createAt": workShop.createAt,
-            "photoPath": workShop.photoPath,
             "description": workShop.WorkshopDescription
             
 
