@@ -8,11 +8,22 @@
 
 import UIKit
 
+
+
 class ProfileViewController: UIViewController  {
+    class func newInstance(user: User) -> ProfileViewController {
+        
+        let vc = ProfileViewController()
+        ProfileViewController.user = user
+        return vc
+    }
+    var height = 0;
+    let userServices = UserWebService();
+    static var user = User(email: "",password: "")
     
     lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .mainBlue
+        view.backgroundColor = .mainGreen
         
         view.addSubview(profileImageView)
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -31,17 +42,42 @@ class ProfileViewController: UIViewController  {
         view.addSubview(nameLabel)
         nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nameLabel.anchor(top: profileImageView.bottomAnchor, paddingTop: 12)
-        
+
+        emailLabel.text = ProfileViewController.user.email
         view.addSubview(emailLabel)
         emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         emailLabel.anchor(top: nameLabel.bottomAnchor, paddingTop: 4)
         
         return view
     }()
+    lazy var bottomContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 0.8)
+        view.addSubview(firstnameLabel)
+        firstnameLabel.anchor(top: view.topAnchor, left:  view.leftAnchor, bottom:  nil, right: nil, paddingTop:  80 ,
+        paddingLeft:  50, paddingBottom:  0, paddingRight: 0, width:  400, height:  70)
+        view.addSubview(requestissueLabel)
+        view.addSubview(lastnameLabel)
+        lastnameLabel.anchor(top: firstnameLabel.topAnchor, left:  view.leftAnchor, bottom:  nil, right: nil, paddingTop:  0 ,
+        paddingLeft:  400, paddingBottom:  0, paddingRight: 0, width:  400, height:  70)
+        view.addSubview(requestissueLabel)
+        requestissueLabel.anchor(top: lastnameLabel.bottomAnchor, left:  view.leftAnchor, bottom:  nil, right: nil, paddingTop:  0,
+        paddingLeft:  50, paddingBottom:  0, paddingRight: 0, width:  400, height:  70)
+        
+        view.addSubview(requestcrtLabel)
+        requestcrtLabel.anchor(top: requestissueLabel.topAnchor, left:  view.leftAnchor, bottom:  nil, right: nil, paddingTop:  0,
+        paddingLeft:  400, paddingBottom:  0, paddingRight: 0, width:  400, height:  70)
+        return view
+    }()
     
     let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "pic1")
+        var image = UIImage(named: user.photo!)
+        if (image != nil) {
+            iv.image = image
+        } else {
+            iv.image = UIImage(named: "pic1")
+        }
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.layer.borderWidth = 3
@@ -66,36 +102,73 @@ class ProfileViewController: UIViewController  {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Eddie Brock"
+        label.text = user.pseudo
         label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textColor = .white
         return label
     }()
-    
+    let firstnameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "Nom: \(user.firstname!)"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .black
+        return label
+    }()
+    let lastnameLabel: UILabel = {
+           let label = UILabel()
+           label.textAlignment = .left
+           label.text = "Prenom: \(user.lastname!)"
+           label.font = UIFont.boldSystemFont(ofSize: 18)
+           label.textColor = .black
+           return label
+       }()
+    let requestcrtLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "Nombre de requetes effectuée: \(user.requestFulfilled!)"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .black
+        return label
+    }()
+    let requestissueLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "Nombre d'atelier realisé: \(user.requestIssued!) "
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .black
+        return label
+    }()
     let emailLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "venom@gmail.com"
+        label.text = user.email
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = .white
         return label
     }()
-    var height = 0;
-    let userServices = UserWebService();
-    var User : User?
+    override func viewWillAppear(_ animated: Bool) {
+        userServices.getconnectedUser { (users) in
+            print(users)
+            ProfileViewController.self.user = users
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 0.77)
         statusBar.height = navigationController!.view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         print("yes here \(height)")
         self.navigationItem.title = "Profil"
         navigationController?.title = "Profil"
         view.addSubview(containerView)
-        containerView.anchor(top: view.topAnchor, left: view.leftAnchor,
-                             right: view.rightAnchor, height: 300)
+        view.addSubview(bottomContainerView)
+        containerView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: statusBar.height + 100 ,
+        paddingLeft:  0, paddingBottom:  0, paddingRight:  0, width: nil, height: 300)
         
+        bottomContainerView.anchor(top: view.topAnchor, left:  view.leftAnchor, bottom:  nil, right: view.rightAnchor, paddingTop:  421 ,
+        paddingLeft:  0, paddingBottom:  0, paddingRight: 0, width:  nil, height:  300)
         
     }
     
@@ -114,16 +187,14 @@ class ProfileViewController: UIViewController  {
 }
 
 extension UIColor {
-    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
-    }
+   
     
-    static let mainBlue = UIColor.rgb(red: 0, green: 150, blue: 255)
+    static let mainGreen = UIColor(red: 91/255, green: 128/255, blue: 185/255, alpha: 0.7)
 }
 
 extension UIView {
     
-    func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, paddingTop: CGFloat? = statusBar.height + 100 ,
+    func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, paddingTop: CGFloat? = 0 ,
                 paddingLeft: CGFloat? = 0, paddingBottom: CGFloat? = 0, paddingRight: CGFloat? = 0, width: CGFloat? = nil, height: CGFloat? = nil) {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -156,6 +227,7 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
+
 }
 
 struct statusBar {

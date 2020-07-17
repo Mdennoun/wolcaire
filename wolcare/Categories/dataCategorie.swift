@@ -10,6 +10,7 @@ import UIKit
 
 public struct categorie {
     static var value: String = ""
+    static var vc: String = ""
     static var id: String = ""
     static var isHidden: Bool = false
 }

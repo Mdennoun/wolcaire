@@ -18,6 +18,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true);
+        self.tabBarController?.tabBar.isHidden = true
+        
+        
+        navigationItem.title = "Wolcare"
         self.mail.delegate = self
         self.mail.tag = 1
         self.password.delegate = self

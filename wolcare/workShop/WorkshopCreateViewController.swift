@@ -70,7 +70,17 @@ class WorkshopCreateViewController: UIViewController {
         hourEndEdt.inputView = hourEndPicker
         houtBeginEdt.inputView = hourBeginPicker
         
-       Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.updateVar), userInfo: nil,  repeats: true) }
+        categorie.vc = "workshop"
+        var timerTest : Timer?
+        if(categorie.vc == "workshop") {
+
+            timerTest = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.updateVar), userInfo: nil,  repeats: true)
+            
+        } else {
+            timerTest!.invalidate()
+        }
+    
+    }
 
        @objc func updateVar() {
         categorieEdt.text = categorie.value
@@ -308,7 +318,7 @@ extension WorkshopCreateViewController: UIImagePickerControllerDelegate, UINavig
     
     @objc func categoryBiganChanged(_ textField: UITextField){
 
-        let vc = CategorysViewController()
+        let vc = CategorysViewController.newInstance(vcname: "workshop")
         vc.modalPresentationStyle = .custom
         present(vc, animated: true, completion: nil)
      }

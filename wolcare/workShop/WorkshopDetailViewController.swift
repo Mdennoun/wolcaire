@@ -59,9 +59,10 @@ class WorkshopDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteTapped))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
-
+        if(connecterUser.id == currentWorshop.idCreator) {
+                   self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteTapped))
+                   self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
+               }
         // Do any additional setup after loading the view.
     }
     @IBAction func Gotomessage(_ sender: Any) {

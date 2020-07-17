@@ -19,12 +19,21 @@ import Foundation
 
 class CategorysViewController: UIViewController {
 
+    class func newInstance(vcname: String) -> CategorysViewController {
+        
+        let vc = CategorysViewController()
+        vc.vcname = vcname
+        categorie.vc = vcname
+        return vc
+    }
+    
 lazy var backdropView: UIView = {
     let bdView = UIView(frame: self.view.bounds)
     bdView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     return bdView
 }()
-
+    
+var vcname = ""
 var menuView : TopView?
 let menuHeight = UIScreen.main.bounds.height / 2
 var isPresenting = false

@@ -44,7 +44,7 @@ class RequestsCollectionViewController: UIViewController , UICollectionViewDeleg
         let nib = UINib(nibName: "RequestCollectionViewCell", bundle: bundle)
         collectionView.register(nib, forCellWithReuseIdentifier: "COLLECTION_CELL_IDENTIFER")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
+       
         navigationController?.title = "Requetes"
         setSearchView()
         
@@ -179,6 +179,13 @@ class RequestsCollectionViewController: UIViewController , UICollectionViewDeleg
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    @objc func LogoutTapped() {
+        
+        print("logout")
+        let vc = LoginViewController()
+        self.navigationController?.popToRootViewController(animated: true)
+           
+       }
     
     @objc func reset(sender: UISwipeGestureRecognizer) {
         

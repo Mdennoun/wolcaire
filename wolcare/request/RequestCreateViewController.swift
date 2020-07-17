@@ -18,10 +18,31 @@ class RequestCreateViewController: UIViewController {
     @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var titleRequest: UITextField!
     @IBOutlet var requestDescription: UITextField!
+    @IBOutlet weak var pseudo: UITextField!
     @IBOutlet var spener: UIActivityIndicatorView!
+    
+    @IBOutlet weak var categorieEdt: UITextField!
     
     let requestServices: RequestService = RequestService()
     
+    override func viewWillAppear(_ animated: Bool) {
+        var timerTest : Timer?
+            categorie.vc = "request"
+             if(categorie.vc == "request") {
+
+                     timerTest =  Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.updateVar), userInfo: nil,  repeats: true)
+            } else {
+                timerTest!.invalidate()
+            }
+        
+    }
+
+                  
+        @objc func updateVar() {
+            
+            categorieEdt.text = categorie.value
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +50,17 @@ class RequestCreateViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(validateTapped))
         
         navigationController?.title = "Nouvelle demande"
+        categorieEdt.addTarget(self, action: #selector(self.categoryBiganChanged(_:)), for: .allTouchEvents)
         
-       
-        
-        
+        categorieEdt.text = categorie.value
+    
     }
+    @objc func categoryBiganChanged(_ textField: UITextField){
+
+        let vc = CategorysViewController.newInstance(vcname: "request")
+         vc.modalPresentationStyle = .custom
+         present(vc, animated: true, completion: nil)
+      }
     @objc func validateTapped() {
         
         print("save")
@@ -42,10 +69,13 @@ class RequestCreateViewController: UIViewController {
         titleRequest.isHidden = true
         cameraButton.isHidden = true
         libraryButton.isHidden = true
+        pseudo.isHidden = true
+        categorieEdt.isHidden = true
         self.spener.isHidden = false
         spener.startAnimating()
         
-        var request = Request(idCategory: "5e48048059ac860004ce7dfe", idUser: "5e48048059ac860004ce7dfe", psuedoUser: "psuedoUser", idVolunteer: "5e48048059ac860004ce7dfe", photoPath: "photoPath", title: requestDescription.text, Requestdescription: titleRequest.text, status: 0, createAt: "1")
+        
+        var request = Request(idCategory: categorie.id, idUser: connecterUser.id, psuedoUser: pseudo.text, idVolunteer: connecterUser.id, photoPath: "photoPath", title: requestDescription.text, Requestdescription: titleRequest.text, status: 0, createAt: Date().description)
         
         print(mainImageView.image?.pngData())
         Post(image : mainImageView.image, request: request)
@@ -129,6 +159,8 @@ extension RequestCreateViewController: UIImagePickerControllerDelegate, UINaviga
                     self.titleRequest.isHidden = false
                     self.cameraButton.isHidden = false
                     self.libraryButton.isHidden = false
+                    self.pseudo.isHidden = true
+                    self.categorieEdt.isHidden = true
                     self.spener.isHidden = true
                     self.spener.stopAnimating()
                     let requestController =  RequestsCollectionViewController.newInstance(requests: requests)

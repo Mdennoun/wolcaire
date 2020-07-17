@@ -47,7 +47,7 @@ class UserFactory {
                  let type = user["type"] as? String,
                  let firstname = user["firstname"] as? String,
                  let lastname = user["lastname"] as? String,
-                 let birthdate = user["birthdate"] as? String,
+                 //let birthdate = user["birthdate"] as? String,
                  let sex = user["sex"] as? Bool,
                  let photo = user["photo"] as? String,
                  let requestIssued = user["requestIssued"] as? Int,
@@ -56,7 +56,7 @@ class UserFactory {
                    return nil
            }
         let user = User(_id: id,email: email, password: password, type: type, pseudo: pseudo, firstname: firstname, lastname:lastname,
-                        birthdate: birthdate.debugDescription, sex: sex, photo: photo, requestIssued: requestIssued, requestFulfilled: requestFulfilled)
+                        birthdate: "birthdate.debugDescription", sex: sex, photo: photo, requestIssued: requestIssued, requestFulfilled: requestFulfilled)
            return user
        }
     

@@ -9,6 +9,7 @@
 import Foundation
 
 typealias UserCompletion = ([User]) -> Void
+typealias userCompletion = (User) -> Void
 class UserWebService {
     
     
@@ -68,10 +69,10 @@ class UserWebService {
             }
             print(json)
             let users =  json.compactMap { (obj) -> User? in
-                guard let uzer = obj as? [String: Any] else {
+                guard let user = obj as? [String: Any] else {
                     return nil
                 }
-                return UserFactory.userFrom(user: uzer)
+                return UserFactory.userFrom(user: user)
             }
             DispatchQueue.main.sync {
                 completion(users)
@@ -85,7 +86,49 @@ class UserWebService {
         completion(arr)
     }
     
+    func getconnectedUser(completion: @escaping userCompletion) -> Void {
+        let url = "https://wolcare.herokuapp.com/api/getUserById/" + connecterUser.id;
+        print(url)
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "GET"
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        //guard let httpBody = try? JSONSerialization.data(withJSONObject:parameters, options: []) else { return }
+        //request.httpBody = httpBody
 
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            // ensure there is data returned from this HTTP response
+            guard let content = data else {
+                print("No data")
+                return
+            }
+            
+            // serialise the data / NSData object into Dictionary [String : Any]
+            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                print("Not containing JSON")
+                return
+            }
+            print("got json response dictionary is \n \(json)")
+            // update UI using the response here
+            let user =  UserFactory.userFrom(user: json)
+            
+            DispatchQueue.main.sync {
+                if(user != nil) {
+                    completion(user!)
+                }
+            }
+        }
+
+        // execute the HTTP request
+        task.resume()
+        
+       
+    }
     
     func deleteUser(id: String) -> Void {
         
@@ -117,6 +160,8 @@ class UserWebService {
                 return
             }
             print("got json response dictionary is \n \(json)")
+            
+            
             // update UI using the response here
         }
 

@@ -37,7 +37,7 @@ class SignInViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     
     private var datePicker: UIDatePicker?
-    private var photos = [UIImage(named: "pic1"), UIImage(named: "pic2"), UIImage(named: "pic3"), UIImage(named: "pic4"), UIImage(named: "pic5"), UIImage(named: "pic6"), UIImage(named: "pic7")]
+    private var photos = [UIImage(named: "pic1"), UIImage(named: "pic2"), UIImage(named: "pic3"), UIImage(named: "pic4"), UIImage(named: "pic5"), UIImage(named: "pic6"), UIImage(named: "pic7"), UIImage(named: "pic8"), UIImage(named: "pic9")]
   
     let userWebService: UserWebService = UserWebService()
     
